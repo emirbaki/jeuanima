@@ -10,6 +10,8 @@ $tl = Get-Content (Join-Path $FILM 'timeline.json') -Raw -Encoding UTF8 | Conver
 $NAME = ($cfg.title -replace '[^\p{L}\p{Nd}]+', '_').Trim('_')
 
 function Run($exe, $argv) { & $exe @argv; if ($LASTEXITCODE -ne 0) { throw "failed ($LASTEXITCODE): $exe $argv" } }
+# sh runs mux.sh. Git for Windows has it, but often not on the PowerShell PATH.
+$SH = if (Get-Command sh -ErrorAction SilentlyContinue) { 'sh' } else { [IO.Path]::GetFullPath((Join-Path (git --exec-path) '..\..\..\bin\sh.exe')) }
 
 if ($tl.draft) { throw 'timeline.json is a draft: put the voice in assets/ and run prep_timeline.py first' }
 $voice = Get-ChildItem (Join-Path $FILM 'assets') -Recurse -File | Where-Object { $_.Name -like 'voice.*' -or $_.Directory.Name -eq 'voice' } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
@@ -23,7 +25,7 @@ try {
   Run $PY @((Join-Path $FILM 'engine\core\py\mix.py'), $FILM)
   Run node @((Join-Path $FILM 'engine\core\tools\audit.mjs'), $FILM)
   Run node @('core/render/video.mjs', $FILM, '--fps', '24', '--workers', '4', '--size', '1080x1920', '--out', (Join-Path $FILM 'out\video.mp4'))
-  Run sh @('core/render/mux.sh', ((Join-Path $FILM 'out\video.mp4') -replace '\\', '/'), ((Join-Path $FILM 'out\mix.wav') -replace '\\', '/'), ((Join-Path $FILM "$NAME.mp4") -replace '\\', '/'), '24')
+  Run $SH @('core/render/mux.sh', ((Join-Path $FILM 'out\video.mp4') -replace '\\', '/'), ((Join-Path $FILM 'out\mix.wav') -replace '\\', '/'), ((Join-Path $FILM "$NAME.mp4") -replace '\\', '/'), '24')
 } finally { Pop-Location }
 # poster: the punchline frame (last spoken line, a third of the way in)
 $spoken = @($tl.lines | Where-Object { $_.silence -eq $null }); $pt = 1.0

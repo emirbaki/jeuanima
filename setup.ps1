@@ -12,8 +12,11 @@ function Run($exe, $argv) { & $exe @argv; if ($LASTEXITCODE -ne 0) { throw "fail
 function Has($name) { [bool](Get-Command $name -ErrorAction SilentlyContinue) }
 
 # 1. tools
-$missing = @('git', 'node', 'npm', 'ffmpeg', 'sh') | Where-Object { -not (Has $_) }
+$missing = @('git', 'node', 'npm', 'ffmpeg') | Where-Object { -not (Has $_) }
 if ($missing) { throw "install these first: $($missing -join ', ')" }
+# build.ps1 finds sh in the Git folder when it is not on the PATH
+$gitSh = [IO.Path]::GetFullPath((Join-Path (git --exec-path) '..\..\..\bin\sh.exe'))
+if (-not (Has 'sh') -and -not (Test-Path $gitSh)) { throw 'sh not found: install Git for Windows' }
 $nodeMajor = [int]((node -v).TrimStart('v').Split('.')[0])
 if ($nodeMajor -lt 20) { throw "Node 20+ is needed (found $(node -v))" }
 
