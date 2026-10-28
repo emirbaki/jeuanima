@@ -1,0 +1,12 @@
+{
+    "title":  "Papağan",
+    "style":  "scifi-toon",
+    "kind":  "sketch",
+    "follow":  "end",
+    "cast":  {
+
+             },
+    "stage":  "built",
+    "max_gap":  0.12,
+    "hold":  2.2
+}

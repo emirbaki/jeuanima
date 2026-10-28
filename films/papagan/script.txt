@@ -1,0 +1,28 @@
+# Papağan — kullanıcının kendi seslendirmesi (tek dosya). Anlatım ANLATICI; KOCA, KADIN, PAPAĞAN replikleri aynı sesle.
+ANLATICI: Yeni evli bir çift,
+ANLATICI: düğünlerinin hemen ardından balayına gitmek üzere
+ANLATICI: otel odasında hazırlanmaktadır.
+ANLATICI: Ancak odada evcil bir papağan vardır.
+ANLATICI: Kadın, papağan kendilerine bakarken
+ANLATICI: rahat edemeyeceğini söyler.
+ANLATICI: Bunun üzerine kocası papağana sertçe çıkışarak:
+KOCA: Arkanı dön ve ikinci bir emre kadar sakın öne bakma!
+KOCA: Yoksa seni ve aileni fena yaparım!
+ANLATICI: diyerek tehdit eder.
+ANLATICI: Papağan korkudan arkasını döner
+ANLATICI: ve çift işine bakar.
+ANLATICI: Ertesi sabah balayı için bavul toplama vakti gelir.
+ANLATICI: Dünkü korkudan dolayı
+ANLATICI: hâlâ arkası dönük bir şekilde duvara bakarak beklemektedir.
+ANLATICI: Çift, bavulu eşyalarla o kadar çok doldurur ki
+ANLATICI: kapağı bir türlü kapanmaz.
+ANLATICI: Ne kadar bastırsalar da başarılı olamazlar.
+ANLATICI: Sonunda kadın kocasına der ki:
+KADIN: Hayatım, sen bavulu alttan sıkıca tut ki oynamasın.
+KADIN: Ben gardırobun üstüne çıkıp bavulun üstüne doğru zıplayacağım.
+KADIN: Ancak öyle kapanır.
+ANLATICI: Bavula zıplama lafını ve bu hazırlığı duyan papağan,
+ANLATICI: arkasında hâlâ fantezi dolu bir şeyler döndüğünü zannederek
+ANLATICI: arkasını döner ve der ki:
+PAPAĞAN: Değil beni cezalandırmak, sülalemi yok etseniz bile
+PAPAĞAN: bu pozisyonu asla kaçırmam! [heyecanlı, kanat çırpar]

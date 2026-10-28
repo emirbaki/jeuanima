@@ -1,0 +1,16 @@
+{
+    "title":  "Minik Piyanist",
+    "style":  "scifi-toon",
+    "kind":  "sketch",
+    "follow":  "end",
+    "cast":  {
+                 "ADAM":  "nail",
+                 "BARMEN":  "cemil",
+                 "PİYANİST":  "piyanist",
+                 "CİN":  "cin",
+                 "YENİÇERİ":  "yeniceri"
+             },
+    "stage":  "built",
+    "hold":  2.2,
+    "max_gap":  0.12
+}

@@ -1,0 +1,26 @@
+# Minik Piyanist — kullanıcının kendi seslendirmesi (tek dosya). Anlatım ANLATICI, son replik ADAM.
+ANLATICI: Adamın biri bir barda oturur,
+ANLATICI: üç duble viski içer.
+ANLATICI: Hesap zamanı geldiğinde
+ANLATICI: barmene cebinde parası olmadığını söyler.
+ANLATICI: Ancak karşılığında
+ANLATICI: çok ilginç bir şeyi olduğunu iddia eder.
+ANLATICI: Barmen merak eder.
+ANLATICI: Adam da cebinden yirmi beş santim boyunda
+ANLATICI: minik bir piyanist
+ANLATICI: ve önünde küçük bir piyano çıkarır.
+ANLATICI: Piyanist çalmaya başlar
+ANLATICI: ve harika bir şekilde Mozart'ın Türk Marşı'nı icra eder.
+ANLATICI: Barmen bu duruma çok şaşırır.
+ANLATICI: Adam bu piyanisti nasıl bulduğunu açıklarken
+ANLATICI: cebinden bin yıllık paslı bir lamba çıkarır.
+ANLATICI: Lambayı ovaladıklarında
+ANLATICI: ortaya çok yaşlı, az duyan bir cin çıkar.
+ANLATICI: Barmen hemen fırsattan istifade ederek
+ANLATICI: cinden "iki yeni ciğer" diler.
+ANLATICI: Ancak cinin kulağı pek iyi duymadığı için
+ANLATICI: barmenin dileğini yanlış anlar
+ANLATICI: ve ortama iki tane iri yarı yeniçeri getirip bırakır.
+ANLATICI: Barmen şok içinde ne yapacağını bilemezken
+ANLATICI: adam barmene döner ve şunu söyler:
+ADAM: Sen şimdi benim yirmi beş santimlik bir piyanist istediğimi mi sandın?! [bıkkın, sakin]
