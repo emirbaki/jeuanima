@@ -6,6 +6,7 @@ there, reverb tail included (silence is the punchline). Cue names:
   title    a rising theremin sting            theme    lounge groove: walking bass, brushes, sparse theremin
   march    Mozart, Rondo alla Turca (K. 331, public domain) on a toy piano with an um-pa bass
   mystic   portal pad + vibes arpeggio         tension  tremolo strings rising, low pulse
+  sad      'sad edit' cliché: slow minor piano, crying theremin
   silence  nothing (room tone comes from mix.py)          end   logo jingle
 Instrument ideas follow the scifi-toon STYLE.md §7 (theremin lead, analogue bass, retro drums); code is written here."""
 import sys, os, json
@@ -114,7 +115,19 @@ def cue_tension(B, t0, t1):
 def cue_end(B, t0, t1):
     for k, n in enumerate(['C5', 'E5', 'G5', 'C6']): B.add(xylo(M(n), .5), t0 + .12 + k * .1, pan=-.3 + k * .2)
     st, x = theremin([(t0 + .55, .9, M('G5')), (t0 + .9, .9, M('C6'))], glide=.1); B.add(x * .25, st)
-CUES = {'title': cue_title, 'theme': cue_theme, 'march': cue_march, 'mystic': cue_mystic, 'tension': cue_tension, 'end': cue_end, 'silence': None}
+def cue_sad(B, t0, t1):
+    """a 'sad edit' cliché: slow minor piano + a crying theremin with wide vibrato, over a soft pad"""
+    d = t1 - t0; B.add(pad(d, [M('A3'), M('C4'), M('E4')], .22, cut=1100), t0)
+    chords = [['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['C3', 'E3', 'G3'], ['G3', 'B3', 'D4']]
+    t, k = t0, 0
+    while t < t1:
+        for i, n in enumerate(chords[k % 4]): B.add(toy(M(n) - 12, .28), t + i * .09, pan=-.2 + i * .2)
+        t += 1.2; k += 1
+    notes = [(0, .9, 'E5'), (.9, .5, 'D5'), (1.4, 1.4, 'C5'), (2.8, .6, 'B4'), (3.4, 1.6, 'A4')]
+    for rep in range(int(d // 5) + 1):
+        ns = [(t0 + rep * 5 + a, dd, M(n)) for a, dd, n in notes if t0 + rep * 5 + a + dd < t1]
+        if ns: st, x = theremin(ns, glide=.12, vib=.6, rate=5.2); B.add(x * .3, st, pan=.1)
+CUES = {'sad': cue_sad, 'title': cue_title, 'theme': cue_theme, 'march': cue_march, 'mystic': cue_mystic, 'tension': cue_tension, 'end': cue_end, 'silence': None}
 
 def main():
     film = sys.argv[1].rstrip('/\\')

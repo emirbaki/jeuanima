@@ -1,0 +1,14 @@
+JeuAnima
+Copyright 2026 emirbaki (https://github.com/emirbaki/jeuanima)
+
+This product includes software developed in the JeuAnima project.
+If you use, copy or change this code, keep this NOTICE file and give
+credit to JeuAnima with a link to https://github.com/emirbaki/jeuanima.
+
+Third-party parts:
+- engine/styles/scifi-toon/: MIT License, Copyright (c) 2026 LemoLab
+  (see engine/styles/scifi-toon/LICENSE).
+- engine/core/fonts/: Baloo 2 and Poppins, SIL Open Font License 1.1
+  (see engine/core/fonts/OFL-*.txt).
+- The render library Lemo-Opuscar (https://github.com/lemomo-ai/lemo-opuscar,
+  MIT License) is not included. setup.ps1 downloads it.

@@ -1,0 +1,42 @@
+{
+ "how": [
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "pair",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "pair",
+  "pair",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "match",
+  "pair",
+  "match",
+  "match",
+  "match"
+ ],
+ "added": [],
+ "missing": [],
+ "doubtful": [
+  "salı"
+ ],
+ "edits": [
+  "  voice 17.02 s -> 12.43 s (3 chunks, 0 cut, gaps at most 0.12 s)"
+ ]
+}

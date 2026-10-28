@@ -1,5 +1,5 @@
 # Telefon — kullanıcının kendi seslendirmesi (tek dosya). USTA = Nail (kayıtlı kadro), AMCA = Rıza Amca (yeni).
 USTA: Amca, telefon çalışıyor, bozuk mozuk değil.
 AMCA: E o zaman neden çocuklarım beni aramıyor?
-AMCA: Kapat lan şu müziği, klip mi çekiyoruz oğlum? [bastonu tezgâha vurur]
+AMCA: Kapat lan şu müziği, sad edit mi çekiyoruz oğlum? [bastonu tezgâha vurur]
 USTA: Ya amca, uçak modunu açmışsın, o yüzden çalışmıyor.

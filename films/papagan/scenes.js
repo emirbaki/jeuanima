@@ -151,6 +151,6 @@ seam(endStart(), 'portal', .5);
 endCard({ follow: CFG.follow });
 
 const overlay = t => {
-  if (t < 3.2) { push(); reset(); titleCard('PAPAĞAN', .1, t, { y: 420, size: 120 }); pop(); if (t > .2) reportText('title', 'PAPAĞAN', 180, 330, 900, 510); }
+  if (t < 3.2) { push(); setM([1, 0, 0, 1, 0, 0]); titleCard('PAPAĞAN', .1, t, { y: 420, size: 120 }); pop(); if (t > .2) reportText('title', 'PAPAĞAN', 180, 330, 900, 510); }
 };
 await boot({ canvas: g.canvas, fonts: ['800 58px "Baloo 2"'], overlay, after });

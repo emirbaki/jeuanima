@@ -1,15 +1,12 @@
-# Video ve ses çıktıları
+# Rendered video and sound (build.ps1 makes them again)
 *.mp4
 *.mov
 *.webm
 *.wav
 *.mp3
 *.m4a
-films/*/out/
-films/*/stills/
-films/*/poster.jpg
 
-# Ses kayıtları (kullanıcının sesi)
+# Voice recordings (the voice of the person who recorded them)
 films/*/assets/voice*
 films/*/assets/voice/
 
@@ -22,10 +19,10 @@ __pycache__/
 # Node
 node_modules/
 
-# Sistem
+# System
 Thumbs.db
 desktop.ini
 .DS_Store
 
-# Claude Code yerel ayarları
+# Claude Code local settings
 .claude/settings.local.json

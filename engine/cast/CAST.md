@@ -16,3 +16,4 @@ Ortak poz alanları: `x, y, s, face (1 sağa, -1 sola), t (q(t) ver), look [x, y
 | `kerem.js` | Kerem (KOCA) | sert, beceriksiz | smokin, gevşek papyon, yakada dev çiçek | `#2c3550` | papagan |
 | `leyla.js` | Leyla (KADIN) | pratik, kararlı | topuz, gelinlik, yerde sürünen duvak | `#e86a8a` | papagan |
 | `pasa.js` | Paşa (PAPAĞAN) | korkak, meraklı | kırmızı gövde, mavi kanat; `turn` 0 ön, 1 sırt; `perch()` | `#d9443b` | papagan |
+| `riza.js` | Rıza (AMCA) | huysuz, çocuklarını özlüyor | kasket, kalın gözlük, beyaz bıyık, hırka, baston (`bang`) | `#8a5a3c` | telefon |

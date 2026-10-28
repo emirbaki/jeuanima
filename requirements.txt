@@ -1,0 +1,10 @@
+# JeuAnima Python packages. setup.ps1 installs them into the Lemo-Opuscar .venv.
+numpy
+scipy
+soundfile
+soxr
+pillow
+librosa
+faster-whisper
+av<19   # av 19 removed an option that faster-whisper 1.2 uses
+pytest

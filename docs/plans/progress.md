@@ -39,3 +39,4 @@
 ## Round 4
 - Ruling: 'altyazıyı ortalayıp' = vertical centre band at y 1150 (60 %), not dead centre (y 960), so faces stay clear — cost if wrong: one number, SUB.y.
 - Fixed: word-by-word captions, pieces of max 3 words / 18 letters, yellow spoken word; subs carry word times (36/36 tests).
+- Ruling: title overlays use setM(identity) inside push/pop, not reset() — reset() empties the matrix stack and the next pop() crashes when a speaker pill draws in the same frame (found in telefon) — cost if wrong: none.

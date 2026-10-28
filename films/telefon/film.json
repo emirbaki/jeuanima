@@ -1,10 +1,12 @@
 {
-  "title": "Telefon",
-  "style": "scifi-toon",
-  "kind": "sketch",
-  "follow": "end",
-  "cast": {},
-  "stage": "voice_wait",
-  "max_gap": 0.12,
-  "hold": 2.2
+    "title":  "Telefon",
+    "style":  "scifi-toon",
+    "kind":  "sketch",
+    "follow":  "end",
+    "cast":  {
+
+             },
+    "stage":  "built",
+    "max_gap":  0.12,
+    "hold":  2.2
 }

@@ -82,4 +82,5 @@ SOUNDS = {
     'clink': clink, 'zip': zip_, 'poof': poof, 'plink': plink, 'bonk': bonk, 'honk': honk, 'wobble': wobble,
     'whistle_up': lambda e: whistle(500, 1500), 'whistle_down': lambda e: whistle(1600, 420, .7),
     'crash': crash, 'tada': tada, 'swish': swish,
+    'click': lambda e: norm(click(1.2)) * .7, 'creak': lambda e: norm(lp(sweep(180, 120, .5) * (np.abs(np.sin(2 * np.pi * 30 * t_(.5))) ** 4), 2500)) * .6,
 }

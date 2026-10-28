@@ -221,6 +221,6 @@ for (const n of [6, 12, 17]) ev(Ledge(n) - .05, 'swish');
 endCard({ follow: CFG.follow });
 
 const overlay = t => {
-  if (t < 3.6) { push(); reset(); titleCard('MİNİK PİYANİST', .15, t, { y: 420, size: 112 }); pop(); if (t > .2) reportText('title', 'MİNİK PİYANİST', 70, 340, 1010, 500); }
+  if (t < 3.6) { push(); setM([1, 0, 0, 1, 0, 0]); titleCard('MİNİK PİYANİST', .15, t, { y: 420, size: 112 }); pop(); if (t > .2) reportText('title', 'MİNİK PİYANİST', 70, 340, 1010, 500); }
 };
 await boot({ canvas: g.canvas, fonts: ['800 58px "Baloo 2"'], overlay, after });
