@@ -19,8 +19,8 @@ export function kerem(P) {
   push(); translate(0, hipY); rotate(lean * .18); translate(0, -hipY);
   const shB = [-70, shY + 22], shF = [64, shY + 22];
   const hR = P.handR || [80, hipY - 10], hL = P.handL || [-84, hipY - 8];
-  arm(shB, hL, -12, 46, C.jacketS); hand(hL[0], hL[1], 1.4, 22, C.skin);
-  if (P.holdL) P.holdL(hL);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm(shF, hR, 12, 46, C.jacketS); hand(hR[0], hR[1], -.3, 22, C.skin);
   const body = spline([[-80, hipY + 14], [-88, hipY - 80], [-78, shY + 10], [-30, shY - 10], [36, shY - 10], [80, shY + 14], [86, hipY - 80], [76, hipY + 14], [0, hipY + 22]]);
   shape(body, { fill: C.jacket, shade: () => {
     fillOnly([[-26, shY - 12], [26, shY - 12], [8, hipY - 30], [-8, hipY - 30]], C.shirt, { boil: .4 });
@@ -55,7 +55,9 @@ export function kerem(P) {
   stroke(arc(hc[0] + 26, hc[1] + 82, 16, 5, .3, 2.8, 8), 4);   // chin dimple
   if (P.sweat) sweat(hc[0] - 40, hc[1] - 30 + (t * 40 % 30), 1);
   pop();
-  arm(shF, hR, 12, 46, C.jacket); hand(hR[0], hR[1], -.3, 22, C.skin);
+  // near arm (-x side, in front of the body)
+  arm(shB, hL, 12, 46, C.jacket); hand(hL[0], hL[1], 1.4, 22, C.skin);
+  if (P.holdL) P.holdL(hL);
   if (P.holdR) P.holdR(hR);
   pop(); pop();
 }

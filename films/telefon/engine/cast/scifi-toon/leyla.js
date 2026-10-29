@@ -19,7 +19,8 @@ export function leyla(P) {
   shape(rr(-34, -20, 26, 18, 8), { fill: C.shoe, lw: 5 }); shape(rr(10, -20, 30, 18, 8), { fill: C.shoe, lw: 5 });
   push(); translate(0, waist); rotate(lean * .15); translate(0, -waist);
   const hR = P.handR || [64, waist + 30], hL = P.handL || [-66, waist + 30];
-  arm([-50, shY + 18], hL, -10, 30, C.skinS); hand(hL[0], hL[1], 1.4, 18, C.skin);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm([46, shY + 18], hR, 10, 30, C.skinS); hand(hR[0], hR[1], -.3, 18, C.skin);
   // bell skirt
   shape(spline([[-40, waist], [-130, -40], [-150, -10], [0, 6], [150, -10], [130, -40], [40, waist]]), { fill: C.dress, shade: () => {
     shade([[40, waist], [170, waist], [170, 20], [70, 20]], C.dressS);
@@ -48,7 +49,8 @@ export function leyla(P) {
   mouth(hc[0] + 18, hc[1] + 46, 34, { o: P.o || 0, w: .85 + (P.mw ?? .5) * .3, sm: P.sm ?? .2, teeth: true });
   stroke(quad([hc[0] + 4, hc[1] + 44], [hc[0] + 18, hc[1] + 40], [hc[0] + 32, hc[1] + 44], 6), 4, { line: C.lips });
   pop();
-  arm([46, shY + 18], hR, 10, 30, C.skin); hand(hR[0], hR[1], -.3, 18, C.skin);
+  // near arm (-x side, in front of the body)
+  arm([-50, shY + 18], hL, 10, 30, C.skin); hand(hL[0], hL[1], 1.4, 18, C.skin);
   if (P.holdR) P.holdR(hR);
   pop(); pop();
 }

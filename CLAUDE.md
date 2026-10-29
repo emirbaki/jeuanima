@@ -30,7 +30,7 @@ cd ~/lemo-opuscar && node core/render/still.mjs <film> 2 9.5 --size 1080x1920 --
 node <film>/engine/core/tools/audit.mjs <film>                          # safe zone + text overlap
 $PY core/render/sheet.py out.jpg a.jpg b.jpg --cols 5 --w 360           # contact sheet
 powershell -ExecutionPolicy Bypass -File films\<slug>\build.ps1         # lips, events, score, mix, audit, video, mux, poster
-$PY -m pytest engine/core/tests -q                                       # 33 tests
+$PY -m pytest engine/core/tests -q                                       # 42 tests
 ```
 
 `build.ps1` stops when `timeline.json` is a draft or when the voice is newer than the timeline. A 90 s film builds in about 2 minutes.
@@ -45,7 +45,9 @@ $PY -m pytest engine/core/tests -q                                       # 33 te
 - Subtitles (`subs.js`): word by word. Each cue is cut into pieces of at most 3 words / 18 letters (a new piece after punctuation), centred at screen y 1150, Baloo 2 70 px with a thick outline. The spoken word is yellow and pops on twos. Narrator lines (`ANLATICI`) have no pill. Character lines get a pill above the piece. Every sub carries `words` [{w, a, b}] from align.py.
 - Voice cleaning (`voice_edit.py`, single-file voice only): the track is split at silences, each chunk is transcribed alone, a chunk is cut when one of the next two chunks restarts with the same words (one word may change), and the filler between them ("Evet.") goes too. Gaps are shortened to film.json `max_gap` (default 0.55 s, 0.12 = almost no gaps). `(sessizlik X)` lines are added back as exact silences. The cuts are printed and kept in `out/align_report.json` (`edits`). `--raw` keeps the recording as it is.
 - Mix (`mix.py`): music sits `MUSIC_BELOW` 16 dB under the voice and dips `MUSIC_DUCK` 9 dB more while words play. Foley peaks at `FX_GAIN` 0.2 and dips 6 dB under words. The voice must always be on top.
-- Motion (`scenes.js` pattern): every cut settles in with a small push, the camera drifts slightly, characters breathe on twos, and some cuts use the `whip` seam (`ui.js`). Foley has 32 types in `foley.py`: put a sound on every visible action.
+- Motion (`scenes.js` pattern): every cut settles in with a small push, the camera drifts slightly, characters breathe on twos, and some cuts use the `whip` seam (`ui.js`). Foley has 37 types in `foley.py` (incl. snip, buzz, step): put a sound on every visible action.
+- Song files: `ev(t, 'music', {cue: 'file', file: 'assets/x.m4a', offset, fade, gain})` plays a user's song as a cue (normalized to the synth cue level, cut hard at the next cue).
+- End on the last word: `setHold(Lend(n) + .15 - TL.dur)` (a negative hold). Captions stop at `endStart()`.
 - End of film: `HOLD` seconds (film.json `hold`, default 1.8) of picture after the last word, for the reaction to the punchline, then the 2 s end card. Use `endStart()` for anything at the end.
 - Whisper fixes in `align.py`: a split suffix ("barmen" + "'e") is joined, and digits ("25") match Turkish number words ("yirmi beş") but stay as digits on screen, digits in the script match too, and a heard word that joins two script words ("Adamda" = "Adam da") is split.
 
@@ -54,8 +56,9 @@ $PY -m pytest engine/core/tests -q                                       # 33 te
 - Safe zone for text: x 60..1020, y 220..1500. Keep text and key props out of screen y 1080..1220 (caption band).
 - Style invariants: `~/lemo-opuscar/styles/scifi-toon/STYLE.md`. Constant screen-space line width, boil at 12 fps, flat fills, hard shadows, the portal (orange to pink, never acid green) is the only glow.
 - Copyright: no existing show's characters, names, catchphrases or portal look. No LemoLab text in videos.
-- Whisper runs on CUDA (large-v3, float16) by loading cuBLAS/cuDNN from torch's lib folder in `D:\MLProjelerim\.venv_ml` (`JEUANIMA_CUDA_DLLS` overrides the path). Do not install packages into that venv. Without it, CPU + medium. Chunk transcripts are cached in `out/chunks.json`.
+- Whisper runs on CUDA (large-v3, int8_float16: float16 does not fit the 4 GB GPU and was 9x slower) by loading cuBLAS/cuDNN from torch's lib folder in `D:\MLProjelerim\.venv_ml` (`JEUANIMA_CUDA_DLLS` overrides the path). Do not install packages into that venv. Without it, CPU + medium. Chunk transcripts are cached in `out/chunks.json`.
 - Faces: noses sit below the eyes, inside the face outline (`nose()` in `chars.js`, centre of the bulb).
+- Arms: characters face +x in three-quarter view. `handL` (-x) is the near arm: draw it after the body in the lit colour. `handR` (+x) is the far arm: draw it before the body in the shade colour. Both elbows bend back (positive `bend`).
 - On-screen props with text use a diegetic style (a paper tag, a sign), not a terminal readout.
 - `film.json` is written without a BOM. Python reads it with `utf-8-sig`.
 - Deliverables in a film folder: `<Title>.mp4`, `poster.jpg`, `TREATMENT.md`.

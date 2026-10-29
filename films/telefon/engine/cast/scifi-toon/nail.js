@@ -23,8 +23,8 @@ export function nail(P) {
   const shB = [-62, shY + 18], shF = [56, shY + 18];
   const hR = P.handR || [78, hipY - 20], hL = P.handL || [-80, hipY - 18];
   // back arm (puffy sleeve)
-  arm(shB, hL, -14, 52, C.jacketS); hand(hL[0], hL[1], 1.4, 22, C.skin);
-  if (P.holdL) P.holdL(hL);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm(shF, hR, 12, 52, C.jacketS); hand(hR[0], hR[1], -.3, 22, C.skin);
   // puffer torso
   const body = spline([[-88, hipY + 6], [-98, hipY - 90], [-78, shY + 4], [-20, shY - 14], [48, shY - 10], [86, shY + 22], [94, hipY - 80], [82, hipY + 8], [0, hipY + 18]]);
   shape(body, { fill: C.jacket, shade: () => {
@@ -60,7 +60,9 @@ export function nail(P) {
   mouth(hc[0] + 30, hc[1] + 54, 46, { o: P.o || 0, w: .85 + (P.mw ?? .5) * .3, sm: P.sm ?? -.3, skew: .25 });
   pop();
   // front arm
-  arm(shF, hR, 12, 52, C.jacket); hand(hR[0], hR[1], -.3, 22, C.skin);
+  // near arm (-x side, in front of the body)
+  arm(shB, hL, 14, 52, C.jacket); hand(hL[0], hL[1], 1.4, 22, C.skin);
+  if (P.holdL) P.holdL(hL);
   if (P.holdR) P.holdR(hR);
   pop(); pop();
 }

@@ -24,7 +24,9 @@ export function cin(P) {
   // back arm: holds the ear trumpet when raised
   const tr = P.trumpet || 0;
   const hL = [lerp(-110, -128, tr), lerp(-60, shY - 72, tr)];
-  arm([-60, shY + 20], hL, -10, 34, C.vestS);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  const sn = P.snap || 0, hR = [lerp(100, 178, sn), lerp(-60, shY - 30, sn)];
+  arm([60, shY + 20], hR, 10, 34, C.vestS); hand(hR[0], hR[1], -.6 - sn * .8, 20, C.skin, { fist: sn > .6 });
   // body + vest
   shape(spline([[-80, -10], [-90, shY + 30], [-50, shY - 6], [50, shY - 6], [90, shY + 30], [80, -10], [0, 10]]), { fill: C.skin, shade: () => {
     fillOnly([[-90, shY + 10], [-20, shY - 10], [-30, 0], [-90, 0]], C.vest, { boil: .4 });
@@ -66,11 +68,9 @@ export function cin(P) {
     shape(ell(b[0] - 4, b[1], 12, 30, 20), { fill: '#3a2a14', lw: 6 });
     pop();
   }
-  hand(hL[0], hL[1], .6, 20, C.skin);
+  // near arm (-x side, in front of the body)
+  arm([-60, shY + 20], hL, 10, 34, C.vest); hand(hL[0], hL[1], .6, 20, C.skin);
   // front arm: snap
-  const sn = P.snap || 0;
-  const hR = [lerp(100, 178, sn), lerp(-60, shY - 30, sn)];
-  arm([60, shY + 20], hR, 10, 34, C.vest); hand(hR[0], hR[1], -.6 - sn * .8, 20, C.skin, { fist: sn > .6 });
   if (sn > .6) for (let k = 0; k < 5; k++) { const a = k / 5 * Math.PI * 2; stroke([[hR[0] + 30 + Math.cos(a) * 26, hR[1] - 20 + Math.sin(a) * 26], [hR[0] + 30 + Math.cos(a) * 44, hR[1] - 20 + Math.sin(a) * 44]], 5, { line: '#ffe3b0' }); }
   if (P.cough) for (let k = 0; k < 3; k++) { const ph = (t * 2 + k * .3) % 1; shape(ell(70 + ph * 60, shY - 40 - ph * 30, 10 + ph * 16, 8 + ph * 12, 12), { fill: '#b9ad8e', lw: 4, alpha: 1 - ph }); }
   pop(); pop();

@@ -17,8 +17,8 @@ export function cemil(P) {
   push(); translate(0, hipY); rotate(lean * .15); translate(0, -hipY);
   const shB = [-92, shY + 40], shF = [86, shY + 40];
   const hR = P.handR || [112, hipY - 30], hL = P.handL || [-110, hipY - 30];
-  arm(shB, hL, -16, 40, C.shirtS); hand(hL[0], hL[1], 1.5, 22, C.skin);
-  if (P.holdL) P.holdL(hL);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm(shF, hR, 14, 40, C.shirtS); hand(hR[0], hR[1], -.3, 22, C.skin);
   // round body: shirt, then waistcoat over it
   const body = spline([[-104, hipY + 10], [-124, hipY - 90], [-92, shY + 10], [0, shY - 14], [92, shY + 10], [124, hipY - 90], [104, hipY + 10], [0, hipY + 22]]);
   shape(body, { fill: C.vest, shade: () => {
@@ -51,7 +51,9 @@ export function cemil(P) {
   mustache(hc[0] + 10, hc[1] + 42, 62, { col: C.hair, curl: P.curl ?? .25, wob: Math.sin(t * 9) * (P.jit ? 4 : 0) });
   if (P.sweat) for (let k = 0; k < P.sweat; k++) { const ph = (t * .9 + k * .37) % 1; sweat(hc[0] - 60 + k * 52, hc[1] - 40 + ph * 50, .9); }
   pop();
-  arm(shF, hR, 14, 40, C.shirt); hand(hR[0], hR[1], -.3, 22, C.skin);
+  // near arm (-x side, in front of the body)
+  arm(shB, hL, 16, 40, C.shirt); hand(hL[0], hL[1], 1.5, 22, C.skin);
+  if (P.holdL) P.holdL(hL);
   if (P.holdR) P.holdR(hR);
   pop(); pop();
 }
