@@ -1,0 +1,1836 @@
+{
+"dur": 51.77,
+"draft": false,
+"words": [
+{
+"w": "Bir",
+"a": 0.26,
+"b": 0.38,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "gün",
+"a": 0.38,
+"b": 0.6,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "bir",
+"a": 0.6,
+"b": 0.76,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "adam",
+"a": 0.76,
+"b": 1.04,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "berbere",
+"a": 1.04,
+"b": 1.88,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "girer",
+"a": 1.88,
+"b": 2.28,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "ve",
+"a": 2.28,
+"b": 2.5,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "sorar:",
+"a": 2.5,
+"b": 2.98,
+"who": "ANLATICI",
+"line": 0
+},
+{
+"w": "Sırada",
+"a": 3.2,
+"b": 3.6,
+"who": "ADAM",
+"line": 1
+},
+{
+"w": "kaç",
+"a": 3.6,
+"b": 3.82,
+"who": "ADAM",
+"line": 1
+},
+{
+"w": "kişi",
+"a": 3.82,
+"b": 4.14,
+"who": "ADAM",
+"line": 1
+},
+{
+"w": "var?",
+"a": 4.14,
+"b": 4.36,
+"who": "ADAM",
+"line": 1
+},
+{
+"w": "Berber",
+"a": 4.64,
+"b": 5.03,
+"who": "ANLATICI",
+"line": 2
+},
+{
+"w": "de",
+"a": 5.03,
+"b": 5.16,
+"who": "ANLATICI",
+"line": 2
+},
+{
+"w": "cevaplar:",
+"a": 5.16,
+"b": 5.84,
+"who": "ANLATICI",
+"line": 2
+},
+{
+"w": "5",
+"a": 5.84,
+"b": 5.98,
+"who": "BERBER",
+"line": 3
+},
+{
+"w": "kişi",
+"a": 5.98,
+"b": 6.3,
+"who": "BERBER",
+"line": 3
+},
+{
+"w": "var.",
+"a": 6.3,
+"b": 6.52,
+"who": "BERBER",
+"line": 3
+},
+{
+"w": "Sonra",
+"a": 6.78,
+"b": 7.0,
+"who": "ANLATICI",
+"line": 4
+},
+{
+"w": "adam",
+"a": 7.0,
+"b": 7.3,
+"who": "ANLATICI",
+"line": 4
+},
+{
+"w": "çıkar",
+"a": 7.3,
+"b": 7.78,
+"who": "ANLATICI",
+"line": 4
+},
+{
+"w": "ve",
+"a": 7.78,
+"b": 8.34,
+"who": "ANLATICI",
+"line": 4
+},
+{
+"w": "gider.",
+"a": 8.34,
+"b": 8.62,
+"who": "ANLATICI",
+"line": 4
+},
+{
+"w": "Bir",
+"a": 9.02,
+"b": 9.1,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "sonraki",
+"a": 9.1,
+"b": 9.6,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "gün",
+"a": 9.6,
+"b": 9.8,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "tekrar",
+"a": 10.16,
+"b": 10.54,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "gelir",
+"a": 10.54,
+"b": 10.8,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "aynı",
+"a": 10.8,
+"b": 11.08,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "adam.",
+"a": 11.08,
+"b": 11.36,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "Berbere",
+"a": 11.72,
+"b": 12.18,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "sorar:",
+"a": 12.18,
+"b": 12.68,
+"who": "ANLATICI",
+"line": 5
+},
+{
+"w": "Sırada",
+"a": 12.68,
+"b": 13.1,
+"who": "ADAM",
+"line": 6
+},
+{
+"w": "kaç",
+"a": 13.1,
+"b": 13.32,
+"who": "ADAM",
+"line": 6
+},
+{
+"w": "kişi",
+"a": 13.32,
+"b": 13.62,
+"who": "ADAM",
+"line": 6
+},
+{
+"w": "var?",
+"a": 13.62,
+"b": 13.84,
+"who": "ADAM",
+"line": 6
+},
+{
+"w": "Berber",
+"a": 14.12,
+"b": 14.57,
+"who": "ANLATICI",
+"line": 7
+},
+{
+"w": "de",
+"a": 14.57,
+"b": 14.72,
+"who": "ANLATICI",
+"line": 7
+},
+{
+"w": "cevaplar,",
+"a": 14.72,
+"b": 15.3,
+"who": "ANLATICI",
+"line": 7
+},
+{
+"w": "bu",
+"a": 15.56,
+"b": 15.66,
+"who": "ANLATICI",
+"line": 7
+},
+{
+"w": "sefer:",
+"a": 15.66,
+"b": 16.02,
+"who": "ANLATICI",
+"line": 7
+},
+{
+"w": "6",
+"a": 16.02,
+"b": 16.24,
+"who": "BERBER",
+"line": 8
+},
+{
+"w": "kişi",
+"a": 16.24,
+"b": 16.64,
+"who": "BERBER",
+"line": 8
+},
+{
+"w": "var.",
+"a": 16.64,
+"b": 16.84,
+"who": "BERBER",
+"line": 8
+},
+{
+"w": "Adam",
+"a": 17.14,
+"b": 17.4,
+"who": "ANLATICI",
+"line": 9
+},
+{
+"w": "çıkar",
+"a": 17.4,
+"b": 17.8,
+"who": "ANLATICI",
+"line": 9
+},
+{
+"w": "yine",
+"a": 17.8,
+"b": 18.28,
+"who": "ANLATICI",
+"line": 9
+},
+{
+"w": "gider.",
+"a": 18.28,
+"b": 18.56,
+"who": "ANLATICI",
+"line": 9
+},
+{
+"w": "Ardından",
+"a": 18.98,
+"b": 19.5,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "üçüncü",
+"a": 19.5,
+"b": 20.34,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "gün",
+"a": 20.34,
+"b": 20.54,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "tekrar",
+"a": 20.54,
+"b": 20.9,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "aynı",
+"a": 20.9,
+"b": 21.3,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "adam",
+"a": 21.3,
+"b": 21.58,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "gelir",
+"a": 21.58,
+"b": 21.9,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "ve",
+"a": 21.9,
+"b": 22.18,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "tekrar",
+"a": 22.18,
+"b": 22.52,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "sorar:",
+"a": 22.52,
+"b": 23.12,
+"who": "ANLATICI",
+"line": 10
+},
+{
+"w": "Sırada",
+"a": 23.36,
+"b": 23.76,
+"who": "ADAM",
+"line": 11
+},
+{
+"w": "kaç",
+"a": 23.76,
+"b": 23.94,
+"who": "ADAM",
+"line": 11
+},
+{
+"w": "kişi",
+"a": 23.94,
+"b": 24.28,
+"who": "ADAM",
+"line": 11
+},
+{
+"w": "var?",
+"a": 24.28,
+"b": 24.52,
+"who": "ADAM",
+"line": 11
+},
+{
+"w": "Berber",
+"a": 24.82,
+"b": 25.16,
+"who": "ANLATICI",
+"line": 12
+},
+{
+"w": "cevaplar,",
+"a": 25.16,
+"b": 25.8,
+"who": "ANLATICI",
+"line": 12
+},
+{
+"w": "bu",
+"a": 25.8,
+"b": 26.06,
+"who": "ANLATICI",
+"line": 12
+},
+{
+"w": "sefer:",
+"a": 26.06,
+"b": 26.44,
+"who": "ANLATICI",
+"line": 12
+},
+{
+"w": "Sırada",
+"a": 26.44,
+"b": 26.82,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "4",
+"a": 26.82,
+"b": 27.08,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "kişi",
+"a": 27.08,
+"b": 27.38,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "var.",
+"a": 27.38,
+"b": 27.58,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "45",
+"a": 27.66,
+"b": 27.94,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "dakikaya",
+"a": 27.94,
+"b": 28.64,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "sıra",
+"a": 28.64,
+"b": 28.92,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "sana",
+"a": 28.92,
+"b": 29.08,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "gelir.",
+"a": 29.08,
+"b": 29.38,
+"who": "BERBER",
+"line": 13
+},
+{
+"w": "Adam",
+"a": 29.74,
+"b": 29.98,
+"who": "ANLATICI",
+"line": 14
+},
+{
+"w": "yine",
+"a": 29.98,
+"b": 30.26,
+"who": "ANLATICI",
+"line": 14
+},
+{
+"w": "çıkar",
+"a": 30.26,
+"b": 30.64,
+"who": "ANLATICI",
+"line": 14
+},
+{
+"w": "ve",
+"a": 30.64,
+"b": 31.2,
+"who": "ANLATICI",
+"line": 14
+},
+{
+"w": "gider.",
+"a": 31.2,
+"b": 31.46,
+"who": "ANLATICI",
+"line": 14
+},
+{
+"w": "Bu",
+"a": 31.86,
+"b": 31.98,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "sefer",
+"a": 31.98,
+"b": 32.36,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "berber",
+"a": 32.36,
+"b": 32.74,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "şüphelenir",
+"a": 32.74,
+"b": 33.48,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "tabi",
+"a": 33.48,
+"b": 33.82,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "ki.",
+"a": 33.82,
+"b": 33.86,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "Çırağını",
+"a": 34.0,
+"b": 34.48,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "adamın",
+"a": 34.48,
+"b": 35.14,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "peşinden",
+"a": 35.14,
+"b": 35.6,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "yollar.",
+"a": 35.6,
+"b": 36.04,
+"who": "ANLATICI",
+"line": 15
+},
+{
+"w": "Ardından",
+"a": 36.38,
+"b": 36.84,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "çırak",
+"a": 36.84,
+"b": 37.5,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "adamın",
+"a": 37.78,
+"b": 38.14,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "peşinden",
+"a": 38.14,
+"b": 38.6,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "gider",
+"a": 38.6,
+"b": 39.02,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "ve",
+"a": 39.02,
+"b": 39.52,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "geri",
+"a": 39.52,
+"b": 39.86,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "gelir.",
+"a": 39.86,
+"b": 40.08,
+"who": "ANLATICI",
+"line": 16
+},
+{
+"w": "Berber",
+"a": 40.48,
+"b": 40.9,
+"who": "ANLATICI",
+"line": 17
+},
+{
+"w": "sorar:",
+"a": 40.9,
+"b": 41.36,
+"who": "ANLATICI",
+"line": 17
+},
+{
+"w": "E",
+"a": 41.64,
+"b": 41.72,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "bu",
+"a": 41.72,
+"b": 41.88,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "adam",
+"a": 41.88,
+"b": 42.2,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "nereye",
+"a": 42.2,
+"b": 43.02,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "gidiyor",
+"a": 43.02,
+"b": 43.42,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "böyle?",
+"a": 43.42,
+"b": 43.64,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "Her",
+"a": 43.78,
+"b": 44.22,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "gün",
+"a": 44.22,
+"b": 44.52,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "gelip",
+"a": 44.52,
+"b": 44.86,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "soruyor,",
+"a": 44.86,
+"b": 45.32,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "her",
+"a": 45.36,
+"b": 45.6,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "gün",
+"a": 45.6,
+"b": 45.88,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "de",
+"a": 45.88,
+"b": 46.04,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "tıraş",
+"a": 46.04,
+"b": 46.38,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "olmuyor.",
+"a": 46.38,
+"b": 46.82,
+"who": "BERBER",
+"line": 18
+},
+{
+"w": "Çırak",
+"a": 47.16,
+"b": 47.4,
+"who": "ANLATICI",
+"line": 19
+},
+{
+"w": "da",
+"a": 47.4,
+"b": 47.64,
+"who": "ANLATICI",
+"line": 19
+},
+{
+"w": "cevap",
+"a": 47.64,
+"b": 48.08,
+"who": "ANLATICI",
+"line": 19
+},
+{
+"w": "verir:",
+"a": 48.08,
+"b": 48.4,
+"who": "ANLATICI",
+"line": 19
+},
+{
+"w": "Abi",
+"a": 48.62,
+"b": 48.84,
+"who": "ÇIRAK",
+"line": 20
+},
+{
+"w": "bu",
+"a": 48.84,
+"b": 49.14,
+"who": "ÇIRAK",
+"line": 20
+},
+{
+"w": "adam",
+"a": 49.14,
+"b": 49.48,
+"who": "ÇIRAK",
+"line": 20
+},
+{
+"w": "sizin",
+"a": 49.48,
+"b": 50.16,
+"who": "ÇIRAK",
+"line": 20
+},
+{
+"w": "eve",
+"a": 50.16,
+"b": 50.5,
+"who": "ÇIRAK",
+"line": 20
+},
+{
+"w": "gidiyor.",
+"a": 50.5,
+"b": 51.0,
+"who": "ÇIRAK",
+"line": 20
+}
+],
+"lines": [
+{
+"i": 0,
+"who": "ANLATICI",
+"a": 0.26,
+"b": 2.98,
+"silence": null
+},
+{
+"i": 1,
+"who": "ADAM",
+"a": 3.2,
+"b": 4.36,
+"silence": null
+},
+{
+"i": 2,
+"who": "ANLATICI",
+"a": 4.64,
+"b": 5.84,
+"silence": null
+},
+{
+"i": 3,
+"who": "BERBER",
+"a": 5.84,
+"b": 6.52,
+"silence": null
+},
+{
+"i": 4,
+"who": "ANLATICI",
+"a": 6.78,
+"b": 8.62,
+"silence": null
+},
+{
+"i": 5,
+"who": "ANLATICI",
+"a": 9.02,
+"b": 12.68,
+"silence": null
+},
+{
+"i": 6,
+"who": "ADAM",
+"a": 12.68,
+"b": 13.84,
+"silence": null
+},
+{
+"i": 7,
+"who": "ANLATICI",
+"a": 14.12,
+"b": 16.02,
+"silence": null
+},
+{
+"i": 8,
+"who": "BERBER",
+"a": 16.02,
+"b": 16.84,
+"silence": null
+},
+{
+"i": 9,
+"who": "ANLATICI",
+"a": 17.14,
+"b": 18.56,
+"silence": null
+},
+{
+"i": 10,
+"who": "ANLATICI",
+"a": 18.98,
+"b": 23.12,
+"silence": null
+},
+{
+"i": 11,
+"who": "ADAM",
+"a": 23.36,
+"b": 24.52,
+"silence": null
+},
+{
+"i": 12,
+"who": "ANLATICI",
+"a": 24.82,
+"b": 26.44,
+"silence": null
+},
+{
+"i": 13,
+"who": "BERBER",
+"a": 26.44,
+"b": 29.38,
+"silence": null
+},
+{
+"i": 14,
+"who": "ANLATICI",
+"a": 29.74,
+"b": 31.46,
+"silence": null
+},
+{
+"i": 15,
+"who": "ANLATICI",
+"a": 31.86,
+"b": 36.04,
+"silence": null
+},
+{
+"i": 16,
+"who": "ANLATICI",
+"a": 36.38,
+"b": 40.08,
+"silence": null
+},
+{
+"i": 17,
+"who": "ANLATICI",
+"a": 40.48,
+"b": 41.36,
+"silence": null
+},
+{
+"i": 18,
+"who": "BERBER",
+"a": 41.64,
+"b": 46.82,
+"silence": null
+},
+{
+"i": 19,
+"who": "ANLATICI",
+"a": 47.16,
+"b": 48.4,
+"silence": null
+},
+{
+"i": 20,
+"who": "ÇIRAK",
+"a": 48.62,
+"b": 51.0,
+"silence": null
+}
+],
+"subs": [
+{
+"line": 0,
+"who": "ANLATICI",
+"a": 0.26,
+"b": 3.2,
+"text": "Bir gün bir adam berbere girer ve sorar:",
+"words": [
+{
+"w": "Bir",
+"a": 0.26,
+"b": 0.38
+},
+{
+"w": "gün",
+"a": 0.38,
+"b": 0.6
+},
+{
+"w": "bir",
+"a": 0.6,
+"b": 0.76
+},
+{
+"w": "adam",
+"a": 0.76,
+"b": 1.04
+},
+{
+"w": "berbere",
+"a": 1.04,
+"b": 1.88
+},
+{
+"w": "girer",
+"a": 1.88,
+"b": 2.28
+},
+{
+"w": "ve",
+"a": 2.28,
+"b": 2.5
+},
+{
+"w": "sorar:",
+"a": 2.5,
+"b": 2.98
+}
+]
+},
+{
+"line": 1,
+"who": "ADAM",
+"a": 3.2,
+"b": 4.64,
+"text": "Sırada kaç kişi var?",
+"words": [
+{
+"w": "Sırada",
+"a": 3.2,
+"b": 3.6
+},
+{
+"w": "kaç",
+"a": 3.6,
+"b": 3.82
+},
+{
+"w": "kişi",
+"a": 3.82,
+"b": 4.14
+},
+{
+"w": "var?",
+"a": 4.14,
+"b": 4.36
+}
+]
+},
+{
+"line": 2,
+"who": "ANLATICI",
+"a": 4.64,
+"b": 5.84,
+"text": "Berber de cevaplar:",
+"words": [
+{
+"w": "Berber de",
+"a": 4.64,
+"b": 5.16
+},
+{
+"w": "cevaplar:",
+"a": 5.16,
+"b": 5.84
+}
+]
+},
+{
+"line": 3,
+"who": "BERBER",
+"a": 5.84,
+"b": 6.78,
+"text": "5 kişi var.",
+"words": [
+{
+"w": "5",
+"a": 5.84,
+"b": 5.98
+},
+{
+"w": "kişi",
+"a": 5.98,
+"b": 6.3
+},
+{
+"w": "var.",
+"a": 6.3,
+"b": 6.52
+}
+]
+},
+{
+"line": 4,
+"who": "ANLATICI",
+"a": 6.78,
+"b": 8.97,
+"text": "Sonra adam çıkar ve gider.",
+"words": [
+{
+"w": "Sonra",
+"a": 6.78,
+"b": 7.0
+},
+{
+"w": "adam",
+"a": 7.0,
+"b": 7.3
+},
+{
+"w": "çıkar",
+"a": 7.3,
+"b": 7.78
+},
+{
+"w": "ve",
+"a": 7.78,
+"b": 8.34
+},
+{
+"w": "gider.",
+"a": 8.34,
+"b": 8.62
+}
+]
+},
+{
+"line": 5,
+"who": "ANLATICI",
+"a": 9.02,
+"b": 12.68,
+"text": "Bir sonraki gün tekrar gelir aynı adam. Berbere sorar:",
+"words": [
+{
+"w": "Bir",
+"a": 9.02,
+"b": 9.1
+},
+{
+"w": "sonraki",
+"a": 9.1,
+"b": 9.6
+},
+{
+"w": "gün",
+"a": 9.6,
+"b": 9.8
+},
+{
+"w": "tekrar",
+"a": 10.16,
+"b": 10.54
+},
+{
+"w": "gelir",
+"a": 10.54,
+"b": 10.8
+},
+{
+"w": "aynı",
+"a": 10.8,
+"b": 11.08
+},
+{
+"w": "adam.",
+"a": 11.08,
+"b": 11.36
+},
+{
+"w": "Berbere",
+"a": 11.72,
+"b": 12.18
+},
+{
+"w": "sorar:",
+"a": 12.18,
+"b": 12.68
+}
+]
+},
+{
+"line": 6,
+"who": "ADAM",
+"a": 12.68,
+"b": 14.12,
+"text": "Sırada kaç kişi var?",
+"words": [
+{
+"w": "Sırada",
+"a": 12.68,
+"b": 13.1
+},
+{
+"w": "kaç",
+"a": 13.1,
+"b": 13.32
+},
+{
+"w": "kişi",
+"a": 13.32,
+"b": 13.62
+},
+{
+"w": "var?",
+"a": 13.62,
+"b": 13.84
+}
+]
+},
+{
+"line": 7,
+"who": "ANLATICI",
+"a": 14.12,
+"b": 16.02,
+"text": "Berber de cevaplar, bu sefer:",
+"words": [
+{
+"w": "Berber de",
+"a": 14.12,
+"b": 14.72
+},
+{
+"w": "cevaplar,",
+"a": 14.72,
+"b": 15.3
+},
+{
+"w": "bu",
+"a": 15.56,
+"b": 15.66
+},
+{
+"w": "sefer:",
+"a": 15.66,
+"b": 16.02
+}
+]
+},
+{
+"line": 8,
+"who": "BERBER",
+"a": 16.02,
+"b": 17.14,
+"text": "6 kişi var.",
+"words": [
+{
+"w": "6",
+"a": 16.02,
+"b": 16.24
+},
+{
+"w": "kişi",
+"a": 16.24,
+"b": 16.64
+},
+{
+"w": "var.",
+"a": 16.64,
+"b": 16.84
+}
+]
+},
+{
+"line": 9,
+"who": "ANLATICI",
+"a": 17.14,
+"b": 18.91,
+"text": "Adam çıkar yine gider.",
+"words": [
+{
+"w": "Adam",
+"a": 17.14,
+"b": 17.4
+},
+{
+"w": "çıkar",
+"a": 17.4,
+"b": 17.8
+},
+{
+"w": "yine",
+"a": 17.8,
+"b": 18.28
+},
+{
+"w": "gider.",
+"a": 18.28,
+"b": 18.56
+}
+]
+},
+{
+"line": 10,
+"who": "ANLATICI",
+"a": 18.98,
+"b": 23.36,
+"text": "Ardından üçüncü gün tekrar aynı adam gelir ve tekrar sorar:",
+"words": [
+{
+"w": "Ardından",
+"a": 18.98,
+"b": 19.5
+},
+{
+"w": "üçüncü",
+"a": 19.5,
+"b": 20.34
+},
+{
+"w": "gün",
+"a": 20.34,
+"b": 20.54
+},
+{
+"w": "tekrar",
+"a": 20.54,
+"b": 20.9
+},
+{
+"w": "aynı",
+"a": 20.9,
+"b": 21.3
+},
+{
+"w": "adam",
+"a": 21.3,
+"b": 21.58
+},
+{
+"w": "gelir",
+"a": 21.58,
+"b": 21.9
+},
+{
+"w": "ve",
+"a": 21.9,
+"b": 22.18
+},
+{
+"w": "tekrar",
+"a": 22.18,
+"b": 22.52
+},
+{
+"w": "sorar:",
+"a": 22.52,
+"b": 23.12
+}
+]
+},
+{
+"line": 11,
+"who": "ADAM",
+"a": 23.36,
+"b": 24.82,
+"text": "Sırada kaç kişi var?",
+"words": [
+{
+"w": "Sırada",
+"a": 23.36,
+"b": 23.76
+},
+{
+"w": "kaç",
+"a": 23.76,
+"b": 23.94
+},
+{
+"w": "kişi",
+"a": 23.94,
+"b": 24.28
+},
+{
+"w": "var?",
+"a": 24.28,
+"b": 24.52
+}
+]
+},
+{
+"line": 12,
+"who": "ANLATICI",
+"a": 24.82,
+"b": 26.44,
+"text": "Berber cevaplar, bu sefer:",
+"words": [
+{
+"w": "Berber",
+"a": 24.82,
+"b": 25.16
+},
+{
+"w": "cevaplar,",
+"a": 25.16,
+"b": 25.8
+},
+{
+"w": "bu",
+"a": 25.8,
+"b": 26.06
+},
+{
+"w": "sefer:",
+"a": 26.06,
+"b": 26.44
+}
+]
+},
+{
+"line": 13,
+"who": "BERBER",
+"a": 26.44,
+"b": 29.73,
+"text": "Sırada 4 kişi var. 45 dakikaya sıra sana gelir.",
+"words": [
+{
+"w": "Sırada",
+"a": 26.44,
+"b": 26.82
+},
+{
+"w": "4",
+"a": 26.82,
+"b": 27.08
+},
+{
+"w": "kişi",
+"a": 27.08,
+"b": 27.38
+},
+{
+"w": "var.",
+"a": 27.38,
+"b": 27.58
+},
+{
+"w": "45",
+"a": 27.66,
+"b": 27.94
+},
+{
+"w": "dakikaya",
+"a": 27.94,
+"b": 28.64
+},
+{
+"w": "sıra",
+"a": 28.64,
+"b": 28.92
+},
+{
+"w": "sana",
+"a": 28.92,
+"b": 29.08
+},
+{
+"w": "gelir.",
+"a": 29.08,
+"b": 29.38
+}
+]
+},
+{
+"line": 14,
+"who": "ANLATICI",
+"a": 29.74,
+"b": 31.81,
+"text": "Adam yine çıkar ve gider.",
+"words": [
+{
+"w": "Adam",
+"a": 29.74,
+"b": 29.98
+},
+{
+"w": "yine",
+"a": 29.98,
+"b": 30.26
+},
+{
+"w": "çıkar",
+"a": 30.26,
+"b": 30.64
+},
+{
+"w": "ve",
+"a": 30.64,
+"b": 31.2
+},
+{
+"w": "gider.",
+"a": 31.2,
+"b": 31.46
+}
+]
+},
+{
+"line": 15,
+"who": "ANLATICI",
+"a": 31.86,
+"b": 36.38,
+"text": "Bu sefer berber şüphelenir tabi ki. Çırağını adamın peşinden yollar.",
+"words": [
+{
+"w": "Bu",
+"a": 31.86,
+"b": 31.98
+},
+{
+"w": "sefer",
+"a": 31.98,
+"b": 32.36
+},
+{
+"w": "berber",
+"a": 32.36,
+"b": 32.74
+},
+{
+"w": "şüphelenir",
+"a": 32.74,
+"b": 33.48
+},
+{
+"w": "tabi",
+"a": 33.48,
+"b": 33.82
+},
+{
+"w": "ki.",
+"a": 33.82,
+"b": 33.86
+},
+{
+"w": "Çırağını",
+"a": 34.0,
+"b": 34.48
+},
+{
+"w": "adamın",
+"a": 34.48,
+"b": 35.14
+},
+{
+"w": "peşinden",
+"a": 35.14,
+"b": 35.6
+},
+{
+"w": "yollar.",
+"a": 35.6,
+"b": 36.04
+}
+]
+},
+{
+"line": 16,
+"who": "ANLATICI",
+"a": 36.38,
+"b": 40.43,
+"text": "Ardından çırak adamın peşinden gider ve geri gelir.",
+"words": [
+{
+"w": "Ardından",
+"a": 36.38,
+"b": 36.84
+},
+{
+"w": "çırak",
+"a": 36.84,
+"b": 37.5
+},
+{
+"w": "adamın",
+"a": 37.78,
+"b": 38.14
+},
+{
+"w": "peşinden",
+"a": 38.14,
+"b": 38.6
+},
+{
+"w": "gider",
+"a": 38.6,
+"b": 39.02
+},
+{
+"w": "ve",
+"a": 39.02,
+"b": 39.52
+},
+{
+"w": "geri",
+"a": 39.52,
+"b": 39.86
+},
+{
+"w": "gelir.",
+"a": 39.86,
+"b": 40.08
+}
+]
+},
+{
+"line": 17,
+"who": "ANLATICI",
+"a": 40.48,
+"b": 41.64,
+"text": "Berber sorar:",
+"words": [
+{
+"w": "Berber",
+"a": 40.48,
+"b": 40.9
+},
+{
+"w": "sorar:",
+"a": 40.9,
+"b": 41.36
+}
+]
+},
+{
+"line": 18,
+"who": "BERBER",
+"a": 41.64,
+"b": 47.16,
+"text": "E bu adam nereye gidiyor böyle? Her gün gelip soruyor, her gün de tıraş olmuyor.",
+"words": [
+{
+"w": "E",
+"a": 41.64,
+"b": 41.72
+},
+{
+"w": "bu",
+"a": 41.72,
+"b": 41.88
+},
+{
+"w": "adam",
+"a": 41.88,
+"b": 42.2
+},
+{
+"w": "nereye",
+"a": 42.2,
+"b": 43.02
+},
+{
+"w": "gidiyor",
+"a": 43.02,
+"b": 43.42
+},
+{
+"w": "böyle?",
+"a": 43.42,
+"b": 43.64
+},
+{
+"w": "Her",
+"a": 43.78,
+"b": 44.22
+},
+{
+"w": "gün",
+"a": 44.22,
+"b": 44.52
+},
+{
+"w": "gelip",
+"a": 44.52,
+"b": 44.86
+},
+{
+"w": "soruyor,",
+"a": 44.86,
+"b": 45.32
+},
+{
+"w": "her",
+"a": 45.36,
+"b": 45.6
+},
+{
+"w": "gün",
+"a": 45.6,
+"b": 45.88
+},
+{
+"w": "de",
+"a": 45.88,
+"b": 46.04
+},
+{
+"w": "tıraş",
+"a": 46.04,
+"b": 46.38
+},
+{
+"w": "olmuyor.",
+"a": 46.38,
+"b": 46.82
+}
+]
+},
+{
+"line": 19,
+"who": "ANLATICI",
+"a": 47.16,
+"b": 48.62,
+"text": "Çırak da cevap verir:",
+"words": [
+{
+"w": "Çırak",
+"a": 47.16,
+"b": 47.4
+},
+{
+"w": "da",
+"a": 47.4,
+"b": 47.64
+},
+{
+"w": "cevap",
+"a": 47.64,
+"b": 48.08
+},
+{
+"w": "verir:",
+"a": 48.08,
+"b": 48.4
+}
+]
+},
+{
+"line": 20,
+"who": "ÇIRAK",
+"a": 48.62,
+"b": 51.35,
+"text": "Abi bu adam sizin eve gidiyor.",
+"words": [
+{
+"w": "Abi",
+"a": 48.62,
+"b": 48.84
+},
+{
+"w": "bu",
+"a": 48.84,
+"b": 49.14
+},
+{
+"w": "adam",
+"a": 49.14,
+"b": 49.48
+},
+{
+"w": "sizin",
+"a": 49.48,
+"b": 50.16
+},
+{
+"w": "eve",
+"a": 50.16,
+"b": 50.5
+},
+{
+"w": "gidiyor.",
+"a": 50.5,
+"b": 51.0
+}
+]
+}
+]
+}

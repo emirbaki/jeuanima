@@ -8,6 +8,8 @@ there, reverb tail included (silence is the punchline). Cue names:
   mystic   portal pad + vibes arpeggio         tension  tremolo strings rising, low pulse
   sad      'sad edit' cliché: slow minor piano, crying theremin
   silence  nothing (room tone comes from mix.py)          end   logo jingle
+  file     a song from the film folder: ev(t, 'music', {cue: 'file', file: 'assets/x.m4a', offset: s, fade: .25, gain: dB, end: 'rewind'})
+           end: 'rewind' = at the next cue the song rewinds to a stop (made from its own last 1.5 s)
 Instrument ideas follow the scifi-toon STYLE.md §7 (theremin lead, analogue bass, retro drums); code is written here."""
 import sys, os, json
 import numpy as np, soundfile as sf
@@ -129,18 +131,46 @@ def cue_sad(B, t0, t1):
         if ns: st, x = theremin(ns, glide=.12, vib=.6, rate=5.2); B.add(x * .3, st, pan=.1)
 CUES = {'sad': cue_sad, 'title': cue_title, 'theme': cue_theme, 'march': cue_march, 'mystic': cue_mystic, 'tension': cue_tension, 'end': cue_end, 'silence': None}
 
+def cue_file(B, t0, t1, path, offset=0., fade=.25, gain=0.):
+    """a song file (any format ffmpeg reads), from offset seconds, faded in, cut hard at t1 by the caller"""
+    import subprocess
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-ss', str(offset), '-t', str(t1 - t0 + .5), '-i', path, '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'],
+                         capture_output=True, check=True).stdout
+    x = np.frombuffer(raw, np.float32).reshape(-1, 2).copy()
+    x *= .2 / (np.sqrt((x ** 2).mean()) + 1e-9) * 10 ** (gain / 20)   # song level like the synth cues (rms .2), then gain dB
+    n = min(len(x), int(fade * SR)); x[:n] *= np.linspace(0, 1, n)[:, None]
+    st = int(round(t0 * SR)); e = min(len(B.b), st + len(x)); B.b[st:e] += x[:e - st]
+
+
+def rewind(seg, d=.6):
+    """record rewind made from the music itself: the last part played backwards, speeding up (pitch rising), then gone.
+    seg: (n, 2) audio that played just before the stop."""
+    seg = seg[::-1]
+    n_out = int(d * SR); u = np.arange(n_out) / n_out
+    speed = 1.6 + 7.5 * u ** 1.6                                   # samples of source per output sample
+    pos = np.cumsum(speed); pos = pos[pos < len(seg) - 1]; n_out = len(pos)
+    i = pos.astype(int); fr = (pos - i)[:, None]
+    y = seg[i] * (1 - fr) + seg[i + 1] * fr
+    env = np.minimum(1, np.arange(n_out) / (.01 * SR))[:, None] * np.minimum(1, (n_out - np.arange(n_out)) / (.08 * SR))[:, None]
+    hiss = hp(rng.standard_normal(n_out), 3000)[:, None] * .02 * (u[:n_out, None] if len(u) >= n_out else 1)
+    return (y + hiss) * env * 2.2                                  # as loud as the song it rewinds
+
+
 def main():
     film = sys.argv[1].rstrip('/\\')
     E = json.load(open(os.path.join(film, 'events.json'), encoding='utf-8')); dur = E['dur']
     cues = sorted([e for e in E['ev'] if e['type'] == 'music'], key=lambda e: e['t'])
-    out = np.zeros((int(dur * SR) + SR, 2))
+    out = np.zeros((int(dur * SR) + SR, 2)); post = []
     for k, c in enumerate(cues):
         t1 = cues[k + 1]['t'] if k + 1 < len(cues) else dur
         fn = CUES.get(c['cue'])
-        if c['cue'] not in CUES: print('unknown music cue (silent):', c['cue'])
-        if not fn: continue
-        B = Bus(len(out)); fn(B, c['t'], t1)
+        if c['cue'] not in CUES and c['cue'] != 'file': print('unknown music cue (silent):', c['cue'])
+        if not fn and c['cue'] != 'file': continue
+        B = Bus(len(out))
+        if c['cue'] == 'file': cue_file(B, c['t'], t1, os.path.join(film, c['file']), c.get('offset', 0), c.get('fade', .25), c.get('gain', 0))
+        else: fn(B, c['t'], t1)
         b = B.b; a, e = int(c['t'] * SR), int(t1 * SR); f = int(.012 * SR)
+        if c.get('end') == 'rewind': post.append((e, rewind(b[max(a, e - int(1.5 * SR)):e].copy())))   # rewound after the cut
         b[e:] = 0; b[max(a, e - f):e] *= np.linspace(1, 0, e - max(a, e - f))[:, None]   # hard cut, tail included
         out += b
     rv = np.exp(-np.arange(int(.35 * SR)) / SR / .09) * rng.standard_normal(int(.35 * SR)) * .04; rv[0] = 1
@@ -149,6 +179,7 @@ def main():
         if c['cue'] == 'silence':
             nxt = [d['t'] for d in cues if d['t'] > c['t']]; a, e = int(c['t'] * SR), int((nxt[0] if nxt else dur) * SR)
             out[a:e] = 0
+    for e, x in post: m = min(len(out), e + len(x)); out[e:m] += x[:m - e]
     out = out[:int(dur * SR)]; out /= max(np.abs(out).max(), 1e-9) / .8
     os.makedirs(os.path.join(film, 'out'), exist_ok=True)
     sf.write(os.path.join(film, 'out', 'score.wav'), out.astype(np.float32), SR)

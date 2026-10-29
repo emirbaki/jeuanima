@@ -1,5 +1,6 @@
-# Telefon — kullanıcının kendi seslendirmesi (tek dosya). USTA = Nail (kayıtlı kadro), AMCA = Rıza Amca (yeni).
+# Telefon — kullanıcının kendi seslendirmesi (tek dosya). USTA = Nail (kayıtlı kadro, dükkân sahibi), AMCA = Rıza Amca (yeni).
+# Sağda çırak Emre baştan beri hoparlörden sad edit şarkısını çalıyor ve amcayı çekiyor (assets/sad_edit.m4a). Satır 2'de usta ona bağırır, şarkı geri sarılarak durur.
 USTA: Amca, telefon çalışıyor, bozuk mozuk değil.
 AMCA: E o zaman neden çocuklarım beni aramıyor?
-AMCA: Kapat lan şu müziği, sad edit mi çekiyoruz oğlum? [bastonu tezgâha vurur]
+USTA: Kapat lan şu müziği, sad edit mi çekiyoruz oğlum? [sağdaki çırağı Emre'ye bağırır]
 USTA: Ya amca, uçak modunu açmışsın, o yüzden çalışmıyor.

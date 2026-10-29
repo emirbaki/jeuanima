@@ -40,3 +40,21 @@
 - Ruling: 'altyazıyı ortalayıp' = vertical centre band at y 1150 (60 %), not dead centre (y 960), so faces stay clear — cost if wrong: one number, SUB.y.
 - Fixed: word-by-word captions, pieces of max 3 words / 18 letters, yellow spoken word; subs carry word times (36/36 tests).
 - Ruling: title overlays use setM(identity) inside push/pop, not reset() — reset() empties the matrix stack and the next pop() crashes when a speaker pill draws in the same frame (found in telefon) — cost if wrong: none.
+
+## telefon
+- Ruling: 'Kapat lan' line is the shop owner breaking the fourth wall (user). The sad-edit song is the film's own score (non-diegetic), cut with a record scratch.
+- Fixed: song cue from file (normalized), 'scratch' foley, captions stop at endStart(), film ends on the last word (user).
+- telefon: Ruling changed by the user: no fourth wall; the owner shouts at an unseen apprentice on the right; the song plays from frame 0 and stops with a scratch when the shout line ends.
+- telefon: apprentice Emre on screen (right, behind counter, films the old man, switches the speaker off); record rewind made from the song's own last 1.5 s (score.py 'rewind'), replacing the synthetic scratch (user).
+
+## Next (2026-10-29): berber
+- User request: new film from C:\Users\emir-\OneDrive\Masaüstü\berber.mp4 (no script; transcribe it). Also: measure transcription time per stage and find ways to make it faster.
+- Plan: 1) time model load / per-chunk transcribe / total on berber.mp4 (large-v3 beam 5 = current). 2) try beam_size 1, BatchedInferencePipeline, and one transcription pass that writes out/chunks.json (do not transcribe twice: the ad-hoc look and prep_timeline used separate passes). large-v3-turbo needs a model download: ask the user first. 3) then the usual film flow (jeuanima-video skill + memory checklist).
+- telefon is done (v5): apprentice Emre, sad-edit song with rewind, end on the last word, new glasses and cane for Rıza.
+
+## berber (2026-10-29) — built
+- Whisper speed: large-v3 float16 did not fit the 4 GB GPU (encoder 5 s per chunk, 77 s voice → 198 s). int8_float16 → 21–35 s, same text. prep_timeline.py: CUDA_TYPE int8_float16, timing print, Whisper "Altyazı ..." hallucination filter, transcribe-only mode when script.txt is empty (cache reused). Graphify: not installed (no token gain here).
+- voice_edit: a slip of the tongue ("Berber solar." / "Berber sorar.") counts as a restart (near-same word ratio .75). Test added (42 tests).
+- New cast musteri.js (6 ordinary men). New foley snip, buzz, step. Berber.mp4 55.96 s, −14.0 LUFS.
+- Arms fix (all cast, all 4 films): near arm (handL, -x) now in front of the body in the lit colour, far arm (handR, +x) behind in the shade colour, both elbows bend back. Patched each film's own engine copy, rebuilt all four. Yeniçeri (crossed arms) unchanged.
+- berber hold: the clippers run front to back over the customer's head (musteri.js `shaved`, `shine`), hair tufts fly onto the cape, the customer rolls his eyes up, the barber looks down.
