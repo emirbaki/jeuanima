@@ -1,6 +1,7 @@
 """JeuAnima · prep_timeline.py: the user's voice + script.txt -> the timeline the page reads.
 
 usage:  python prep_timeline.py <film dir> [--model large-v3] [--fresh] [--raw]
+  no script.txt yet: transcribe only, print what each chunk says (cached, so the run with the script reuses it)
   --fresh  transcribe again (chunk transcripts are cached in out/chunks.json)
   --raw    single file only: keep the recording as it is (no retake cut, no gap shortening)
   --max-gap S   longest gap kept between chunks (default: film.json "max_gap", else 0.55; 0.1 = no gaps)
@@ -8,7 +9,8 @@ Voice input, first found:
   assets/voice.(wav|mp3|m4a|mp4)    the whole dialogue in one file
   assets/voice/*.(wav|mp3|m4a)      one file per spoken line, in script order (name order); silence lines take no file
 A single file is cleaned first (voice_edit.py): retakes cut, gaps shortened to 0.55 s, (sessizlik X) lines added
-back as exact silences. Whisper: CUDA large-v3 when the CUDA DLLs load (JEUANIMA_CUDA_DLLS), else CPU medium.
+back as exact silences. Whisper: CUDA large-v3 int8_float16 when the CUDA DLLs load (JEUANIMA_CUDA_DLLS), else CPU
+medium. float16 large-v3 does not fit a 4 GB GPU and spills to system memory: 77 s of voice took 198 s, int8_float16 21 s.
 Writes out/voice.wav (48 kHz mono), timeline.json/.js (draft: false), out/whisper.json, out/align_report.json.
 Subtitles show what Whisper heard; subs_fix.json ({"heard": "right"}) corrects words. Prints the voice edits and three
 lists: added (said but not in the script), missing (in the script but not heard), doubtful (low Whisper probability)."""
@@ -23,6 +25,8 @@ SR = 48000
 GAP = .3             # seconds between per-line files
 AUDIO = ('.wav', '.mp3', '.m4a', '.mp4', '.aac', '.ogg', '.flac')
 CUDA_DLLS = os.environ.get('JEUANIMA_CUDA_DLLS', r'D:\MLProjelerim\.venv_ml\Lib\site-packages\torch\lib')
+CUDA_TYPE = os.environ.get('JEUANIMA_CUDA_TYPE', 'int8_float16')   # 'float16' needs a GPU with more than 4 GB
+HALLUCINATED = ('altyazı', 'abone ol', 'izlediğiniz için')        # Whisper invents these on short or quiet chunks
 
 
 def load_audio(path, sr=SR):
@@ -59,14 +63,14 @@ def find_voice(film):
 
 
 def load_model(name=None):
-    """CUDA + large-v3 when the CUDA DLLs load (torch's lib folder has cublas and cudnn), else CPU + medium."""
+    """CUDA + large-v3 (CUDA_TYPE) when the CUDA DLLs load (torch's lib folder has cublas and cudnn), else CPU + medium."""
     from faster_whisper import WhisperModel
     if os.path.isdir(CUDA_DLLS):
         try:
             os.add_dll_directory(CUDA_DLLS); os.environ['PATH'] = CUDA_DLLS + os.pathsep + os.environ['PATH']
-            m = WhisperModel(name or 'large-v3', device='cuda', compute_type='float16')
+            m = WhisperModel(name or 'large-v3', device='cuda', compute_type=CUDA_TYPE)
             list(m.transcribe(np.zeros(16000, np.float32), language='tr')[0])   # a missing DLL fails here
-            print('whisper: cuda', name or 'large-v3'); return m
+            print('whisper: cuda', name or 'large-v3', CUDA_TYPE); return m
         except Exception as e:
             print(f'whisper: cuda not usable ({type(e).__name__}), using cpu')
     print('whisper: cpu', name or 'medium')
@@ -76,26 +80,37 @@ def load_model(name=None):
 def transcribe(model, audio16k, offset=0.0):
     segs, _ = model.transcribe(audio16k, language='tr', word_timestamps=True, condition_on_previous_text=False)
     return [{'w': w.word.strip(), 'a': round(offset + w.start, 3), 'b': round(offset + w.end, 3), 'p': round(w.probability, 3)}
-            for s in segs for w in s.words if w.word.strip()]
+            for s in segs if not s.text.strip().lower().startswith(HALLUCINATED) for w in s.words if w.word.strip()]
 
 
-def clean_single(film, path, model_name, fresh, max_gap=.55, lead=.6, script_keys=None):
-    """Split at silences, transcribe each chunk, cut retakes, shorten gaps.
-    Returns (track 48 kHz, heard words in the cleaned time, report lines). Chunk transcripts are cached in out/chunks.json."""
-    from voice_edit import split_chunks, find_retakes, off_script, assemble, remap
+def chunk_words(film, path, model_name, fresh):
+    """Split at silences and transcribe each chunk. Returns (track 48 kHz, chunks, words per chunk), cached in out/chunks.json."""
+    import time
+    from voice_edit import split_chunks
     y = load_audio(path); y16 = load_audio(path, 16000)
     chunks = split_chunks(y, SR)
+    os.makedirs(os.path.join(film, 'out'), exist_ok=True)
     cache = os.path.join(film, 'out', 'chunks.json')
     key = json.loads(json.dumps([os.path.getsize(path), os.path.getmtime(path), chunks]))
     data = json.load(open(cache, encoding='utf-8')) if os.path.exists(cache) and not fresh else None
     if not data or data.get('key') != key:
-        model = load_model(model_name); words = []
+        t0 = time.perf_counter(); model = load_model(model_name); t1 = time.perf_counter(); words = []
         for a, b in chunks:
             a0, b0 = max(0, a - .05), b + .05
             words.append(transcribe(model, y16[int(a0 * 16000):int(b0 * 16000)], a0))
+        t2 = time.perf_counter()
+        print(f'whisper: model {t1 - t0:.1f} s, {len(chunks)} chunks {t2 - t1:.1f} s ({len(y) / SR:.1f} s of voice)')
         data = {'key': key, 'words': words}
         json.dump(data, open(cache, 'w', encoding='utf-8'), ensure_ascii=False)
-    words = data['words']
+    else: print('whisper: cached (out/chunks.json)')
+    return y, chunks, data['words']
+
+
+def clean_single(film, path, model_name, fresh, max_gap=.55, lead=.6, script_keys=None):
+    """Split at silences, transcribe each chunk, cut retakes, shorten gaps.
+    Returns (track 48 kHz, heard words in the cleaned time, report lines)."""
+    from voice_edit import find_retakes, off_script, assemble, remap
+    y, chunks, words = chunk_words(film, path, model_name, fresh)
     keys = [[norm(w['w']) for w in ws] for ws in words]
     drop = find_retakes(keys)
     if script_keys:                                   # second pass: chunks the script does not need (stubs, noise, broken takes)
@@ -137,6 +152,15 @@ def main():
     from voice_edit import insert_silences
     film = sys.argv[1].rstrip('/\\')
     arg = lambda k, d=None: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
+    sp = os.path.join(film, 'script.txt')
+    if not os.path.exists(sp) or not [l for l in open(sp, encoding='utf-8') if l.strip() and not l.lstrip().startswith('#')]:   # no script yet: say what was heard
+        files = find_voice(film)
+        if len(files) != 1: raise SystemExit('no script.txt: write it first (per-line voice files need the script)')
+        _, chunks, words = chunk_words(film, files[0], arg('--model'), '--fresh' in sys.argv)
+        for i, ((a, b), ws) in enumerate(zip(chunks, words)):
+            print(f"#{i:<3d} {a:6.2f}-{b:6.2f}  " + (' '.join(w['w'] for w in ws) or '(no words)'))
+        print('no script.txt: write it from the lines above, then run this again (the transcripts are cached)')
+        return
     script = parse_script(open(os.path.join(film, 'script.txt'), encoding='utf-8').read())
     os.makedirs(os.path.join(film, 'out'), exist_ok=True)
     files = find_voice(film)

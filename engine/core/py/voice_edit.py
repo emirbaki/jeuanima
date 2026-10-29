@@ -32,9 +32,10 @@ def split_chunks(y, sr, min_sil=.3, th_rel=.06, hop_s=.02, min_len=.12):
 
 
 def _restart(a, b):
-    """How many words of the false start a come back at the start of b (same first word, one word may change)."""
+    """How many words of the false start a come back at the start of b (same first word, one word may change, a near-same word counts)."""
     if not a or not b or a[0] != b[0]: return 0
-    sm = difflib.SequenceMatcher(None, a, b[:len(a) + 1], autojunk=False)
+    near = lambda x: next((y for y in a if difflib.SequenceMatcher(None, x, y).ratio() >= .75), x)   # a slip: "solar" = "sorar"
+    sm = difflib.SequenceMatcher(None, a, [x if x in a else near(x) for x in b[:len(a) + 1]], autojunk=False)
     return sum(m.size for m in sm.get_matching_blocks())
 
 

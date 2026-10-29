@@ -84,3 +84,9 @@ def test_off_script_drops_chunks_the_script_does_not_have_or_has_later():
 def test_off_script_keeps_everything_when_it_all_matches():
     from voice_edit import off_script
     assert off_script([['bir', 'iki'], ['üç']], ['bir', 'iki', 'üç']) == set()
+
+
+def test_find_retakes_slip_of_the_tongue():
+    # "Berber solar." (a slip), a breath, then "Berber sorar." again
+    words = [['adam', 'gelir'], ['berber', 'solar'], [], ['berber', 'sorar'], ['e', 'bu', 'adam']]
+    assert find_retakes(words) == {1, 2}
