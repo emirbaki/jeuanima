@@ -97,63 +97,63 @@
 "w": "Kapat",
 "a": 5.48,
 "b": 6.04,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "lan",
 "a": 6.04,
 "b": 6.14,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "şu",
 "a": 6.14,
 "b": 6.44,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "müziği,",
 "a": 6.44,
 "b": 6.88,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "sad",
 "a": 6.88,
 "b": 7.2,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "edit",
 "a": 7.2,
 "b": 7.42,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "mi",
 "a": 7.42,
 "b": 7.56,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "çekiyoruz",
 "a": 7.56,
 "b": 8.02,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
 "w": "oğlum?",
 "a": 8.02,
 "b": 8.28,
-"who": "AMCA",
+"who": "USTA",
 "line": 2
 },
 {
@@ -230,7 +230,7 @@
 },
 {
 "i": 2,
-"who": "AMCA",
+"who": "USTA",
 "a": 5.48,
 "b": 8.28,
 "silence": null
@@ -329,7 +329,7 @@
 },
 {
 "line": 2,
-"who": "AMCA",
+"who": "USTA",
 "a": 5.48,
 "b": 8.63,
 "text": "Kapat lan şu müziği, sad edit mi çekiyoruz oğlum?",

@@ -18,7 +18,8 @@ export function piyanist(P) {
   shape(spline([[-40, hipY - 10], [-62, hipY + 60], [-36, hipY + 50], [-20, hipY + 4]]), { fill: C.coat, lw: 6 });
   const k = play ? Math.floor(t * 12) % 2 : 0;
   const hR = play ? [74, hipY - 18 - k * 8] : [48, hipY + 4], hL = play ? [56, hipY - 26 + k * 8] : [-48, hipY + 4];
-  arm([-30, shY + 16], hL, -8, 24, C.coatS); hand(hL[0], hL[1], .2, 12, C.skin);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm([30, shY + 16], hR, 8, 24, C.coatS); hand(hR[0], hR[1], .2, 12, C.skin);
   shape(spline([[-44, hipY + 2], [-50, shY + 20], [-30, shY - 6], [30, shY - 6], [50, shY + 20], [44, hipY + 2], [0, hipY + 8]]), { fill: C.coat, shade: () =>
     fillOnly([[-14, shY - 8], [14, shY - 8], [6, hipY - 10], [-6, hipY - 10]], C.shirt, { boil: .4 }) });
   shape(spline([[0, shY - 2], [-16, shY - 12], [-16, shY + 6]]), { fill: C.coatS, lw: 5 }); shape(spline([[0, shY - 2], [16, shY - 12], [16, shY + 6]]), { fill: C.coatS, lw: 5 });
@@ -35,7 +36,8 @@ export function piyanist(P) {
   nose(hc[0] + 16, hc[1] + 16, .6, { fill: C.skin });
   mouth(hc[0] + 14, hc[1] + 36, 22, { o: P.o || 0, sm: P.sm ?? .6, teeth: false });
   pop();
-  arm([30, shY + 16], hR, 8, 24, C.coat); hand(hR[0], hR[1], .2, 12, C.skin);
+  // near arm (-x side, in front of the body)
+  arm([-30, shY + 16], hL, 8, 24, C.coat); hand(hL[0], hL[1], .2, 12, C.skin);
   pop(); pop();
   S.lwScale = lw0;
 }

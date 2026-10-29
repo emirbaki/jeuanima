@@ -32,16 +32,17 @@ export function counter(t) {
   shape(rect(-600, 1294, 2400, 900), { fill: P.wood, lw: 7, shade: () => { for (let k = 0; k < 14; k++) stroke([[-560 + k * 170, 1320], [-560 + k * 170, 2100]], 5); } });
 }
 
-// the phone on its stand (origin: bottom of the stand). screen: 'music' | 'plane' | 'calls' | 'off'; buzz 0..1; calls: badge number
+// the phone on its stand (origin: bottom of the stand). screen: 'home' | 'music' | 'plane' | 'calls' | 'off'; buzz 0..1; calls: badge number
 export function phone(x, y, s, t, { screen = 'off', buzz = 0, calls = 0, tap = 0 } = {}) {
   const k = Math.floor(t * 24), bx = buzz ? (hash(k * 1.7) - .5) * 14 * buzz : 0, by = buzz ? (hash(k * 2.9) - .5) * 8 * buzz : 0;
   push(); translate(x + bx, y + by); scale(s); rotate(buzz ? (hash(k) - .5) * .12 * buzz : 0);
   shape(spline([[-50, 0], [50, 0], [26, -40], [-26, -40]]), { fill: '#5a5560', lw: 6 });                  // stand
   shape(rr(-62, -250, 124, 230, 18), { fill: '#1b1422', lw: 7 });
-  const sc = screen === 'calls' ? '#5f8a4a' : screen === 'off' ? '#2a2633' : '#3d6fa8';
+  const sc = screen === 'calls' ? '#5f8a4a' : screen === 'off' ? '#2a2633' : '#3d6fa8';   // 'home' uses the blue too
   fillOnly(rr(-52, -238, 104, 196, 10), sc, { boil: .3 });
   if (screen === 'music') for (let i = 0; i < 3; i++) { const ph = (t * .9 + i / 3) % 1; push(); translate(-24 + i * 24, -110 - ph * 60); scale(.8);
     shape(ell(0, 0, 12, 9, 12), { fill: '#fff3d6', lw: 4 }); stroke([[10, 0], [10, -36]], 5, { line: '#fff3d6' }); pop(); }
+  if (screen === 'home') for (let i = 0; i < 9; i++) shape(rr(-40 + (i % 3) * 30, -220 + Math.floor(i / 3) * 34, 22, 22, 6), { fill: ['#e9c46a', '#e86a8a', '#5f8a4a', '#fff3d6'][i % 4], lw: 3 });   // app icons: it works
   if (screen === 'plane') { push(); translate(0, -140); rotate(-.6); planeShape(1.1, '#fff3d6'); pop();
     shape(rr(-34, -76, 68, 30, 15), { fill: '#e9c46a', lw: 5 }); dot(tap > .5 ? 18 : -18, -61, 10, '#fff3d6'); }   // the switch
   if (screen === 'calls') { shape(spline([[-26, -150], [-12, -164], [-4, -150], [-14, -138], [4, -116], [18, -126], [30, -116], [16, -102], [-20, -128]]), { fill: '#fff3d6', lw: 5 });
@@ -68,4 +69,21 @@ export function plane(x0, y0, t0, t) {
 export function rain(x, y, w, h, t) {
   const tq = Math.floor(t * 12) / 12;
   for (let i = 0; i < 24; i++) { const px = x + hash(i * 3.3) * w, py = y + ((hash(i * 7.1) + tq * 1.6) % 1) * h; stroke([[px, py], [px - 6, py + 34]], 4, { line: '#9fc4e8' }); }
+}
+
+// the apprentice's bluetooth speaker: pulses on the beat while on, notes rise from it
+export function speaker(x, y, s, t, { on = true } = {}) {
+  const beat = on ? Math.abs(Math.sin(t * Math.PI * 1.3)) : 0;
+  push(); translate(x, y); scale(s * (1 + beat * .06), s * (1 - beat * .04));
+  shape(rr(-80, -110, 160, 110, 30), { fill: '#3a3340', lw: 7, shade: () => shade(rect(40, -120, 60, 130), '#2a2430') });
+  for (const sx of [-40, 40]) { shape(ell(sx, -55, 28, 28, 24), { fill: '#1b1422', lw: 5 }); shape(ell(sx, -55, 12 + beat * 5, 12 + beat * 5, 16), { fill: '#5a5560', lw: 4 }); }
+  dot(0, -96, 6, on ? '#5f8a4a' : '#5a2a2a');
+  pop();
+  if (on) for (let k = 0; k < 3; k++) {
+    const ph = (t * .5 + k / 3) % 1, nx = x - 20 + Math.sin(ph * 8 + k) * 40 - ph * 120, ny = y - 140 - ph * 380;
+    push(); translate(nx, ny); rotate(Math.sin(ph * 6) * .3);
+    shape(ell(0, 0, 16, 12, 14), { fill: '#1b1422', lw: 4, alpha: Math.min(1, ph * 4) * (1 - ph) });
+    stroke([[14, 0], [14, -46], [32, -34]], 6, { alpha: Math.min(1, ph * 4) * (1 - ph) });
+    pop();
+  }
 }

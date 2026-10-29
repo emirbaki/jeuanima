@@ -74,6 +74,16 @@ def tada(e):
 def swish(e):
     d = .22; x = t_(d); return norm(bp(nz(d), 1200, 7000) * np.sin(np.pi * x / d) ** 2) * .5
 
+def snip(e):   # scissors: two quick metal clicks
+    d = .16; y = np.zeros(len(t_(d))); c = norm(hp(bp(nz(.03), 3000, 9000), 2500) * env_exp(.03, .006))
+    for k in (0, .07): i = int(k * SR); y[i:i + len(c)] += c * (1 if k == 0 else .7)
+    return norm(y) * .6
+def buzz(e):   # hair clippers: a 120 Hz rattle with a hiss, .8 s (ev {d} sets the length)
+    d = e.get('d', .8) if isinstance(e, dict) else .8; x = t_(d)
+    y = np.sign(np.sin(2 * np.pi * 120 * x)) * .5 + bp(nz(d), 2000, 6000) * .4
+    return norm(lp(y, 4000) * np.minimum(1, np.minimum(x / .04, (d - x) / .06))) * .5
+def step(e): d = .12; return norm(lp(nz(d), 700) * env_exp(d, .025)) * .5   # a soft footstep
+
 SOUNDS = {
     'slide': slide, 'gulp': gulp, 'paper': paper, 'cloth': cloth, 'flutter': flutter, 'blip': blip, 'squeak': squeak,
     'pop': lambda e: norm(pop(1.0)), 'thump': lambda e: norm(thump(1.0, 55)), 'whoosh': lambda e: norm(whoosh(.35)),
@@ -81,6 +91,7 @@ SOUNDS = {
     'sparkle': sparkle, 'snap': snap, 'kazoo': kazoo, 'ding': lambda e: norm(ding(1.0)),
     'clink': clink, 'zip': zip_, 'poof': poof, 'plink': plink, 'bonk': bonk, 'honk': honk, 'wobble': wobble,
     'whistle_up': lambda e: whistle(500, 1500), 'whistle_down': lambda e: whistle(1600, 420, .7),
-    'crash': crash, 'tada': tada, 'swish': swish,
+    'crash': crash, 'tada': tada, 'swish': swish, 'snip': snip, 'buzz': buzz, 'step': step,
+    'scratch': lambda e: norm(bp(nz(.45), 600, 5000) * np.abs(np.sin(2 * np.pi * np.cumsum(9 + 30 * t_(.45)) / SR)) ** 2 + sweep(900, 140, .45, .5) * .5) * .8,
     'click': lambda e: norm(click(1.2)) * .7, 'creak': lambda e: norm(lp(sweep(180, 120, .5) * (np.abs(np.sin(2 * np.pi * 30 * t_(.5))) ** 4), 2500)) * .6,
 }

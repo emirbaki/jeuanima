@@ -3,7 +3,7 @@
 // A piece shows from its first word to the next piece; the spoken word is yellow and pops in on twos.
 // Narrator lines (who in NARRATORS) show no speaker pill; character lines show a pill in the character's colour.
 import { TL } from './time.js';
-import { reportText } from './film.js';
+import { reportText, endStart } from './film.js';
 
 export const SUB = { y: 1150, size: 70, minSize: 50, maxW: 920, outline: 14, maxWords: 3, maxChars: 18, font: '"Baloo 2"',
   fill: '#ffffff', hot: '#ffd23f', ink: '#140d18' };
@@ -26,6 +26,7 @@ export function pieces(cue) {
 
 // g: the 2D context. names: {WHO: {label, color}}. pill(x, y, w, h, color): style-pack drawer (optional).
 export function drawSubs(g, t, { names = {}, pill = null, W = 1080 } = {}) {
+  if (t >= endStart()) return;                       // no caption over the end card
   const cue = TL.subs.filter(s => t >= s.a && t < s.b).pop();
   if (!cue) return;
   const ps = pieces(cue), k = ps.findIndex(p => t >= p.a && t < p.b);

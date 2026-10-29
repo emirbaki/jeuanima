@@ -17,3 +17,5 @@ Ortak poz alanları: `x, y, s, face (1 sağa, -1 sola), t (q(t) ver), look [x, y
 | `leyla.js` | Leyla (KADIN) | pratik, kararlı | topuz, gelinlik, yerde sürünen duvak | `#e86a8a` | papagan |
 | `pasa.js` | Paşa (PAPAĞAN) | korkak, meraklı | kırmızı gövde, mavi kanat; `turn` 0 ön, 1 sırt; `perch()` | `#d9443b` | papagan |
 | `riza.js` | Rıza (AMCA) | huysuz, çocuklarını özlüyor | kasket, kalın gözlük, beyaz bıyık, hırka, baston (`bang`) | `#8a5a3c` | telefon |
+| `emre.js` | Emre (ÇIRAK) | her şeyi telefonla çeker | ters kasket, boynunda kulaklık, turkuaz kapüşonlu; `filming` 0..1 | `#2a9d8f` | telefon |
+| `musteri.js` | Müşteri ×6 (`v: 0..5`) | sıradan mahalle adamları, kalabalık | farklı boy, kilo, saç (kısa, kel, kıvırcık, yana taranmış, kasket), bıyık, gözlük; `paper` gazete, `legs: false` pelerin altında oturan | `#6b7a8f` | berber |

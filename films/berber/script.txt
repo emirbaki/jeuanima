@@ -1,0 +1,22 @@
+# WHO: text [note]   ·   (sessizlik 1.5)
+ANLATICI: Bir gün bir adam berbere girer ve sorar:
+ADAM: Sırada kaç kişi var?
+ANLATICI: Berber de cevaplar:
+BERBER: 5 kişi var.
+ANLATICI: Sonra adam çıkar ve gider.
+ANLATICI: Bir sonraki gün tekrar gelir aynı adam. Berbere sorar:
+ADAM: Sırada kaç kişi var?
+ANLATICI: Berber de cevaplar, bu sefer:
+BERBER: 6 kişi var.
+ANLATICI: Adam çıkar yine gider.
+ANLATICI: Ardından üçüncü gün tekrar aynı adam gelir ve tekrar sorar:
+ADAM: Sırada kaç kişi var?
+ANLATICI: Berber cevaplar, bu sefer:
+BERBER: Sırada 4 kişi var. 45 dakikaya sıra sana gelir.
+ANLATICI: Adam yine çıkar ve gider.
+ANLATICI: Bu sefer berber şüphelenir tabi ki. Çırağını adamın peşinden yollar.
+ANLATICI: Ardından çırak adamın peşinden gider ve geri gelir.
+ANLATICI: Berber sorar:
+BERBER: E bu adam nereye gidiyor böyle? Her gün gelip soruyor, her gün de tıraş olmuyor.
+ANLATICI: Çırak da cevap verir:
+ÇIRAK: Abi bu adam sizin eve gidiyor.

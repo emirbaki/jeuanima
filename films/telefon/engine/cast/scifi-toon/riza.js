@@ -15,18 +15,28 @@ export function riza(P) {
   push(); translate(x + jx, y + jy); scale(s * face * (1 + sq * .5), s * (1 - sq));
   const hipY = -200, shY = -370;
   leg([-28, hipY], [-34, -14], 46, C.pants, C.shoe, 1); leg([26, hipY], [34, -12], 46, C.pants, C.shoe, 1);
-  // cane in the front hand: its foot on the floor, lifted by bang
   const bang = P.bang || 0;
-  const hR = P.handR || [96, hipY + 30 - bang * 60];
-  push(); stroke([[hR[0] + 4, hR[1]], [hR[0] + 18, -2 - bang * 60]], 10, { line: C.cane }); stroke(arc(hR[0] - 10, hR[1] - 4, 16, 14, Math.PI, Math.PI * 2, 10), 10, { line: C.cane }); pop();
-  push(); translate(0, hipY); rotate(.12 + lean * .15); translate(0, -hipY);   // a slight stoop
+  const hR = P.handR || [100, hipY + 20 - bang * 60];
+  const stoop = .12 + lean * .15;
+  push(); translate(0, hipY); rotate(stoop); translate(0, -hipY);   // a slight stoop
   const hL = P.handL || [-80, hipY + 10];
-  arm([-62, shY + 26], hL, -12, 40, C.cardiganS); hand(hL[0], hL[1], 1.4, 20, C.skin);
+  // far arm (+x side, behind the body): the character faces +x in three-quarter view
+  arm([60, shY + 26], hR, 14, 40, C.cardiganS);
   shape(spline([[-74, hipY + 20], [-84, hipY - 70], [-70, shY + 14], [0, shY - 8], [70, shY + 14], [82, hipY - 70], [72, hipY + 20], [0, hipY + 28]]), { fill: C.cardigan, shade: () => {
     fillOnly([[-18, shY - 8], [18, shY - 8], [6, hipY - 40], [-6, hipY - 40]], C.shirt, { boil: .4 });
     shade([[36, shY - 20], [100, shY - 20], [100, hipY + 30], [46, hipY + 30]], C.cardiganS);
   } });
   for (let k = 0; k < 4; k++) dot(10, shY + 40 + k * 34, 6, '#e9c46a');
+  // the cane, in front of him: a thick wooden shaft to the floor, a crook handle under the front hand (lifted by bang)
+  const fl = [hR[0] + 18, -4 - bang * 60], c = Math.cos(-stoop), sn = Math.sin(-stoop);
+  const flG = [c * fl[0] - sn * (fl[1] - hipY), sn * fl[0] + c * (fl[1] - hipY) + hipY];   // the floor point in the stooped frame
+  shape(noodle([hR[0] + 2, hR[1] + 6], flG, 0, 16, 13), { fill: C.cane, lw: 6, shade: () => shade(rect(hR[0] + 6, hR[1], 20, 400), '#5a331c') });
+  shape(noodle([hR[0] - 4, hR[1] + 4], [hR[0] + 10, hR[1] - 30], 8, 16, 16), { fill: C.cane, lw: 6 });
+  shape(noodle([hR[0] + 10, hR[1] - 30], [hR[0] + 38, hR[1] - 10], -14, 16, 13), { fill: C.cane, lw: 6 });
+  shape(rr(flG[0] - 9, flG[1] - 14, 18, 16, 5), { fill: '#2b2230', lw: 5 });   // rubber foot
+  hand(hR[0], hR[1], -.2, 21, C.skin, { fist: true });   // the far hand grips the cane in front of him
+  // near arm (-x side, in front of the body)
+  arm([-62, shY + 26], hL, 12, 40, C.cardigan); hand(hL[0], hL[1], 1.4, 20, C.skin);
   // head
   push(); translate(10, shY - 6); rotate(P.headTilt || 0);
   const hc = [6, -86];
@@ -36,13 +46,13 @@ export function riza(P) {
   for (let k = 0; k < 3; k++) stroke(arc(hc[0] + 8, hc[1] - 34 + k * 8, 26 - k * 3, 5, Math.PI * 1.15, Math.PI * 1.85, 8), 3.5);   // forehead lines
   // flat cap
   shape(spline([[hc[0] - 66, hc[1] - 34], [hc[0] - 50, hc[1] - 82], [hc[0] + 20, hc[1] - 92], [hc[0] + 70, hc[1] - 60], [hc[0] + 96, hc[1] - 36], [hc[0] + 40, hc[1] - 30]]), { fill: C.cap, shade: () => shade(rect(hc[0] + 30, hc[1] - 100, 80, 70), C.capS) });
-  // thick round glasses (eyes behind them)
-  const lk = P.look || [0, 0], lid = P.lid ?? .35;
-  for (const ex of [hc[0] - 2, hc[0] + 36]) {
-    shape(ell(ex, hc[1] - 4, 26, 26, 24), { fill: '#eef6fa', lw: 6 });
-    if (P.blink) stroke([[ex - 14, hc[1] - 4], [ex + 14, hc[1] - 4]], 6); else eye(ex, hc[1] - 4, 15, 17, { lid, look: lk, skin: C.skin, pupil: 5 });
-  }
-  stroke([[hc[0] + 24, hc[1] - 6], [hc[0] + 10, hc[1] - 6]], 5);
+  // round glasses: the eyes, then a light blue lens tint, then thin dark frames, a bridge over the nose, an arm to the ear
+  const lk = P.look || [0, 0], lid = P.lid ?? .35, LX = [hc[0] - 4, hc[0] + 36], LY = hc[1] - 6, LR = 19;
+  for (const ex of LX) { if (P.blink) stroke([[ex - 11, LY], [ex + 11, LY]], 6); else eye(ex, LY, 13, 15, { lid, look: lk, skin: C.skin, pupil: 4.5 }); }
+  for (const ex of LX) { fillOnly(ell(ex, LY, LR, LR, 24), 'rgba(190,226,242,.38)', { boil: .2 }); fillOnly(ell(ex - 7, LY - 8, 4, 7, 10), 'rgba(255,255,255,.75)', { boil: 0 }); }
+  for (const ex of LX) shape(ell(ex, LY, LR, LR, 26), { closed: true, lw: 5, line: '#3a2a20' });
+  stroke(quad([LX[0] + LR, LY - 4], [(LX[0] + LX[1]) / 2, LY - 12], [LX[1] - LR, LY - 4], 6), 5, { line: '#3a2a20' });
+  stroke([[LX[0] - LR, LY - 2], [hc[0] - 56, hc[1] + 2]], 4, { line: '#3a2a20' });
   const b = P.brow ?? 0;
   brow(hc[0] - 2, hc[1] - 40 - b * 8, 34, b * .5, { lw: 9, col: C.hair }); brow(hc[0] + 38, hc[1] - 42 - b * 8, 32, -b * .5, { lw: 9, col: C.hair });
   nose(hc[0] + 22, hc[1] + 26, 1.0, { fill: C.skin });
